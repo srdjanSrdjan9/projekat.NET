@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
     [Serializable]
-    public class StavkaOtpremnice
+    public class StavkaOtpremnice : OpstiDomenskiObjekat
     {
         [Key]
         [Column(Order = 2)]
@@ -20,6 +20,9 @@ namespace Model
         public double UkupnaCena { get; set; }
         public string JedMere { get; set; }
         public int KlasaID { get; set; }
+        [Required]
+        public int RobaID { get; set; }
+        public virtual Roba Roba { get; set; }
         [Key]
         [Column(Order = 1)]
         [ForeignKey("Otpremnica")]
@@ -28,5 +31,31 @@ namespace Model
 
         public StavkaOtpremnice()
         { }
+
+        public string vratiImeTabele()
+        {
+            return "StavkaOtpremnice";
+        }
+
+        public string vratiKljucIUslov()
+        {
+            return "DokumentID=" + DokumentID + ", RedniBrojStavke=" + RedniBrojStavke;
+        }
+
+        public string VrednostZaInsert()
+        {
+            return "(RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, KlasaID, RobaID, DokumentID) VALUES (" + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + "," + JedMere + "," + KlasaID + "," + RobaID + "," + DokumentID + ")";
+        }
+
+        public List<OpstiDomenskiObjekat> vratiListu()
+        {
+            using (var context = new PSContext())
+            {
+                List<StavkaOtpremnice> stavke = context.StavkeOtpremnice.ToList();
+                List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
+                stavke.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));
+                return objekti;
+            }
+        }
     }
 }

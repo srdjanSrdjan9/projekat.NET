@@ -14,7 +14,7 @@ namespace Model
 
         string VrednostZaInsert();
 
-        List<OpstiDomenskiObjekat> vratiListu(PSContext ps);
+        List<OpstiDomenskiObjekat> vratiListu();
 
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpstaSIstemskaOperacija.cs" />
     <Compile Include="SOBrisanjeKorisnika.cs" />
     <Compile Include="SOKreiranjeKlijenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

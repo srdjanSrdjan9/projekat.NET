@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
     [Serializable]
-    public class StavkaPrijemnice
+    public class StavkaPrijemnice : OpstiDomenskiObjekat
     {
         [Key]
         [Column(Order = 2)]
@@ -30,5 +30,31 @@ namespace Model
 
         public StavkaPrijemnice()
         { }
+
+        public string vratiImeTabele()
+        {
+            return "StavkaPrijemnice";
+        }
+
+        public string vratiKljucIUslov()
+        {
+            return "DokumentID=" + DokumentID + ", RedniBrojStavke+" + RedniBrojStavke;
+        }
+
+        public string VrednostZaInsert()
+        {
+            return "(RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, RobaID, DokumentID) VALUES (" + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + "," + JedMere + "," + RobaID + "," + DokumentID + ")";
+        }
+
+        public List<OpstiDomenskiObjekat> vratiListu()
+        {
+            using (var context = new PSContext())
+            {
+                List<StavkaPrijemnice> stavke = context.StavkePrijemnice.ToList();
+                List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
+                stavke.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));
+                return objekti;
+            }
+        }
     }
 }
