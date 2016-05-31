@@ -27,6 +27,18 @@ namespace Model
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
-
+        public bool ubaci(OpstiDomenskiObjekat odo)
+        {
+            try
+            {
+                string query = "INSERT INTO " + odo.vratiImeTabele() + " " + odo.VrednostZaInsert();
+                int rezultat = this.Database.ExecuteSqlCommand(query);
+                return rezultat > 0 ? true : false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
