@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B71192F6-9E15-496E-B274-2E1802A97668}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{2785B451-1A05-442A-8383-FE40B99D10AC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SistemskeOperacije</RootNamespace>
-    <AssemblyName>SistemskeOperacije</AssemblyName>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -49,16 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpstaSIstemskaOperacija.cs" />
-    <Compile Include="SOAzuriranjeKorisnika.cs" />
-    <Compile Include="SOKreirajKorisnika.cs" />
-    <Compile Include="SOPretraziKorisnike.cs" />
-    <Compile Include="SOBrisanjeKorisnika.cs" />
-    <Compile Include="SOKreiranjeKlijenta.cs" />
+    <Compile Include="NitKlijenta.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SOKreiranjeOtpremnice.cs" />
-    <Compile Include="SOKreiranjePrijemnice.cs" />
-    <Compile Include="SOPretrazivanjeProizvoda.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,12 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{b1b5f949-0213-4213-9bd2-270f447c3345}</Project>
+      <Project>{B1B5F949-0213-4213-9BD2-270F447C3345}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sesija\Sesija.csproj">
-      <Project>{C2B4924E-BB23-4FEF-8C52-E25594005D79}</Project>
-      <Name>Sesija</Name>
+    <ProjectReference Include="..\SistemskeOperacije\SistemskeOperacije.csproj">
+      <Project>{b71192f6-9e15-496e-b274-2e1802a97668}</Project>
+      <Name>SistemskeOperacije</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

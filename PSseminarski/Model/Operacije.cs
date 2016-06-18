@@ -16,6 +16,8 @@ namespace Model
         Azuriranje_korisnika,
         Kreiranje_korisnika,
         Kreiranje_reversa,
-        Kreiranje_dobavljaca
+        Kreiranje_dobavljaca,
+        Vrati_korisnike,
+        Kraj
     }
 }

@@ -9,8 +9,9 @@ namespace Model
     [Serializable]
     public class TransferKlasa
     {
-        public Object transferObjekat { get; set; }
-        public int signal { get; set; }
-        public int operacija { get; set; }
+        public Object TransferObjekat { get; set; }
+        public long Signal { get; set; }
+        public int Operacija { get; set; }
+        public bool Uspesnost { get; set; }
     }
 }

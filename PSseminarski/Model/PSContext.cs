@@ -8,7 +8,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Model
 {
-    public class PSContext:DbContext
+    public class PSContext : DbContext
     {
         public DbSet<Dokument> Dokumenti { get; set; }
         public DbSet<Klijent> Klijenti { get; set; }
@@ -33,9 +33,9 @@ namespace Model
             {
                 string query = "INSERT INTO " + odo.vratiImeTabele() + " " + odo.VrednostZaInsert();
                 int rezultat = this.Database.ExecuteSqlCommand(query);
-                return rezultat > 0 ? true : false;
+                return rezultat == 1 ? true : false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

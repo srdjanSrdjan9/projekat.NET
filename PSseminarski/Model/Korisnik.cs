@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Model
 {
     [Serializable]
-    public class Korisnik:OpstiDomenskiObjekat
+    public class Korisnik : OpstiDomenskiObjekat
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Browsable(false)]
@@ -29,7 +29,7 @@ namespace Model
 
         public string vratiImeTabele()
         {
-            return "Korisnik";
+            return "Korisniks";
         }
 
         public string vratiKljucIUslov()
@@ -39,14 +39,15 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(Ime, Prezime, Adresa, Jmbg, DatumRegistrovanja) VALUES (" + Ime + "," + Prezime + "," + Adresa + "," + Jmbg + "," + DatumRegistrovanja + ")";
+            return "(Ime, Prezime, Adresa, Jmbg, DatumRegistrovanja) VALUES ('" + Ime + "','" + Prezime + "','" + Adresa + "','" + Jmbg + "','" + DatumRegistrovanja + "')";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()
         {
             using (var context = new PSContext())
             {
-                List<Korisnik> korisnici = context.Korisnici.ToList();
+                IEnumerable<Korisnik> asd = context.Korisnici;
+                List<Korisnik> korisnici = asd.ToList();
                 List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
                 korisnici.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));
                 return objekti;

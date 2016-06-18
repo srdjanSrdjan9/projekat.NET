@@ -46,14 +46,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AzuriranjeKorisnika.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AzuriranjeKorisnika.Designer.cs">
+      <DependentUpon>AzuriranjeKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Homepage.Designer.cs">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Komunikacija.cs" />
+    <Compile Include="KontrolerKI.cs" />
+    <Compile Include="Korisnici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici.Designer.cs">
+      <DependentUpon>Korisnici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KreiranjeKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KreiranjeKorisnika.Designer.cs">
+      <DependentUpon>KreiranjeKorisnika.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PSseminarskiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSseminarskiDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AzuriranjeKorisnika.resx">
+      <DependentUpon>AzuriranjeKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Homepage.resx">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici.resx">
+      <DependentUpon>Korisnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KreiranjeKorisnika.resx">
+      <DependentUpon>KreiranjeKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,9 +109,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="PSseminarskiDataSet.xsc">
+      <DependentUpon>PSseminarskiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PSseminarskiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PSseminarskiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PSseminarskiDataSet.xss">
+      <DependentUpon>PSseminarskiDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{B1B5F949-0213-4213-9BD2-270F447C3345}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
