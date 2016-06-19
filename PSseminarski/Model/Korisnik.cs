@@ -47,6 +47,10 @@ namespace Model
             using (var context = new PSContext())
             {
                 IEnumerable<Korisnik> asd = context.Korisnici;
+                if (asd == null)
+                {
+                    return null;
+                }
                 List<Korisnik> korisnici = asd.ToList();
                 List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
                 korisnici.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));

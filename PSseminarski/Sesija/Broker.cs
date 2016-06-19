@@ -43,6 +43,7 @@ namespace Sesija
 
         #endregion
 
+        #region korisnici
         public bool sacuvajKorisnika(Korisnik k)
         {
             try
@@ -124,6 +125,37 @@ namespace Sesija
                 return false;
             }
         }
+        #endregion
 
+        #region dobavljaci
+
+        public bool sacuvajDobavljaca(Dobavljac d)
+        {
+            try
+            {
+                using (var context = new PSContext())
+                {
+                    using (var transakcija = context.Database.BeginTransaction())
+                    {
+                        if (context.ubaci(d))
+                        {
+                            transakcija.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transakcija.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        #endregion
     }
 }

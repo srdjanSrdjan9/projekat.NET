@@ -1,37 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
     [Serializable]
-    public class Klijent:OpstiDomenskiObjekat
+    public class Kupac
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Browsable(false)]
-        public long KlijentID { get; set; }
+        public long KupacID { get; set; }
         public string Naziv { get; set; }
         public string Adresa { get; set; }
         public string Pib { get; set; }
         public string MaticniBroj { get; set; }
 
-        public Klijent()
+        public Kupac()
         {
 
         }
 
         public string vratiImeTabele()
         {
-            return "Klijent";
+            return "Kupacs";
         }
 
         public string vratiKljucIUslov()
         {
-            return "KlijentID=" + KlijentID;
+            return "KupacID=" + KupacID;
         }
 
         public string VrednostZaInsert()
@@ -43,9 +43,16 @@ namespace Model
         {
             using (var context = new PSContext())
             {
-                List<Klijent> klijenti = context.Klijenti.ToList();
+                IEnumerable<Kupac> klijenti = context.Kupci;
+
+                if (klijenti == null)
+                {
+                    return null;
+                }
+
+                List<Kupac> kupci = klijenti.ToList();
                 List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
-                klijenti.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));
+                kupci.ForEach(d => objekti.Add(d as OpstiDomenskiObjekat));
                 return objekti;
             }
         }

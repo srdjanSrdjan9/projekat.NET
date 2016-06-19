@@ -25,5 +25,11 @@ namespace Forme
             Korisnici k = new Korisnici();
             k.ShowDialog();
         }
+
+        private void dobavljačiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KreiranjeDobavljaca k = new KreiranjeDobavljaca();
+            k.ShowDialog();
+        }
     }
 }

@@ -66,6 +66,12 @@
     <Compile Include="Korisnici.Designer.cs">
       <DependentUpon>Korisnici.cs</DependentUpon>
     </Compile>
+    <Compile Include="KreiranjeDobavljaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KreiranjeDobavljaca.Designer.cs">
+      <DependentUpon>KreiranjeDobavljaca.cs</DependentUpon>
+    </Compile>
     <Compile Include="KreiranjeKorisnika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici.resx">
       <DependentUpon>Korisnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KreiranjeDobavljaca.resx">
+      <DependentUpon>KreiranjeDobavljaca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KreiranjeKorisnika.resx">
       <DependentUpon>KreiranjeKorisnika.cs</DependentUpon>

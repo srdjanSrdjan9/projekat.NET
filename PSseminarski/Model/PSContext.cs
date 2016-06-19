@@ -11,11 +11,12 @@ namespace Model
     public class PSContext : DbContext
     {
         public DbSet<Dokument> Dokumenti { get; set; }
-        public DbSet<Klijent> Klijenti { get; set; }
+        public DbSet<Dobavljac> Dobavljaci { get; set; }
         public DbSet<Korisnik> Korisnici { get; set; }
         public DbSet<Roba> Roba { get; set; }
         public DbSet<StavkaOtpremnice> StavkeOtpremnice { get; set; }
         public DbSet<StavkaPrijemnice> StavkePrijemnice { get; set; }
+        public DbSet<Kupac> Kupci { get; set; }
 
         public PSContext()
             : base("name = PSseminarski")

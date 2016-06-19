@@ -77,6 +77,16 @@ namespace Forme
             return response.Uspesnost;
         }
 
+        public bool sacuvajDobavljaca(Dobavljac d)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Kreiranje_dobavljaca;
+            transfer.TransferObjekat = d;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.Uspesnost;
+        }
+
         public void zatvori()
         {
             TransferKlasa transfer = new TransferKlasa();

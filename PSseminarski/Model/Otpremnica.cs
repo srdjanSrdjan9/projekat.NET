@@ -14,8 +14,8 @@ namespace Model
         public int BrojOtpremnice { get; set; }
         public ICollection<StavkaOtpremnice> Stavke { get; set; }
         [Required]
-        public long KlijentID { get; set; }
-        public virtual Klijent Klijent { get; set; }
+        public long KupacID { get; set; }
+        public virtual Kupac Kupac { get; set; }
 
         public Otpremnica()
             : base()

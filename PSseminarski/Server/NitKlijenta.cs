@@ -70,6 +70,11 @@ namespace Server
                             transfer.Uspesnost = azuriranje.azurirajKorisnika(transfer.TransferObjekat as Korisnik);
                             formater.Serialize(tok, transfer);
                             break;
+                        case (int)Operacije.Kreiranje_dobavljaca:
+                            SOKreiranjeDobavljaca dobavljac = new SOKreiranjeDobavljaca();
+                            transfer.Uspesnost = dobavljac.sacuvajDobavljaca(transfer.TransferObjekat as Dobavljac);
+                            formater.Serialize(tok, transfer);
+                            break;
                         case ((int)Operacije.Kraj):
                             Console.WriteLine("Hvala na konekciji!");
                             foreach (TransferKlasa t in klijenti)

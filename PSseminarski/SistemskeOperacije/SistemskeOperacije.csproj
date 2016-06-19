@@ -52,6 +52,7 @@
     <Compile Include="OpstaSIstemskaOperacija.cs" />
     <Compile Include="SOAzuriranjeKorisnika.cs" />
     <Compile Include="SOKreirajKorisnika.cs" />
+    <Compile Include="SOKreiranjeDobavljaca.cs" />
     <Compile Include="SOPretraziKorisnike.cs" />
     <Compile Include="SOBrisanjeKorisnika.cs" />
     <Compile Include="SOKreiranjeKlijenta.cs" />

@@ -10,34 +10,34 @@ namespace SistemskeOperacije
 {
     public class SOKreiranjeKlijenta
     {
-        public int KreirajKlijenta(Klijent k)
-        {
-            using (var context = new PSContext())
-            {
-                using (var transaction = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        if (!context.Klijenti.Any(klijent => klijent.MaticniBroj == k.MaticniBroj || klijent.Pib == k.Pib))
-                        {
-                            context.Klijenti.Add(k);
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch (Exception e)
-                    {
-                        transaction.Rollback();
-                        return 0;
-                    }
+        //public int KreirajKlijenta(Dobavljac k)
+        //{
+        //    using (var context = new PSContext())
+        //    {
+        //        using (var transaction = context.Database.BeginTransaction())
+        //        {
+        //            try
+        //            {
+        //                if (!context.Klijenti.Any(klijent => klijent.MaticniBroj == k.MaticniBroj || klijent.Pib == k.Pib))
+        //                {
+        //                    context.Klijenti.Add(k);
+        //                }
+        //                else
+        //                {
+        //                    return -1;
+        //                }
+        //                context.SaveChanges();
+        //                transaction.Commit();
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                transaction.Rollback();
+        //                return 0;
+        //            }
 
-                }
-            }
-            return 1;
-        }
+        //        }
+        //    }
+        //    return 1;
+        //}
     }
 }

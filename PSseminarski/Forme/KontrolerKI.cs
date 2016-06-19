@@ -29,9 +29,42 @@ namespace Forme
             }
         }
 
+        internal bool? sacuvajDobavljaca(string naziv, string pib, string matBr, string adresa)
+        {
+            var result = MessageBox.Show("Da li ste sigurni da želite da sačuvate dobavljača?", "Kreiranje dobavljača", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return null;
+            }
+
+            Dobavljac d = new Dobavljac()
+            {
+                Naziv = naziv,
+                Pib = pib,
+                MaticniBroj = matBr,
+                Adresa = adresa
+            };
+
+            if (k.sacuvajDobavljaca(d))
+            {
+                MessageBox.Show("Dobavljač je uspešno sačuvan!");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Dobavljač nije uspešno sačuvan!");
+                return false;
+            }
+        }
+
         public void dajKorisnike(DataGridView d)
         {
             List<OpstiDomenskiObjekat> pomocna = k.vratiSveKorisnike();
+            if (pomocna == null)
+            {
+                MessageBox.Show("U baze trenutno ne postoji nijedan korisnik!");
+                return;
+            }
             korisnici.Clear();
             pomocna.ForEach(x => korisnici.Add(x as Korisnik));
 

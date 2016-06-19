@@ -50,13 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kupac.cs" />
     <Compile Include="Migrations\201606181148130_asd.cs" />
     <Compile Include="Migrations\201606181148130_asd.Designer.cs">
       <DependentUpon>201606181148130_asd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606190925420_KupciIDobavljaci.cs" />
+    <Compile Include="Migrations\201606190925420_KupciIDobavljaci.Designer.cs">
+      <DependentUpon>201606190925420_KupciIDobavljaci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606190957348_Ispravke.cs" />
+    <Compile Include="Migrations\201606190957348_Ispravke.Designer.cs">
+      <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacije.cs" />
     <Compile Include="Dokument.cs" />
-    <Compile Include="Klijent.cs" />
+    <Compile Include="Dobavljac.cs" />
     <Compile Include="Korisnik.cs" />
     <Compile Include="Migrations\201605281227168_init.cs" />
     <Compile Include="Migrations\201605281227168_init.Designer.cs">
@@ -85,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181148130_asd.resx">
       <DependentUpon>201606181148130_asd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606190925420_KupciIDobavljaci.resx">
+      <DependentUpon>201606190925420_KupciIDobavljaci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606190957348_Ispravke.resx">
+      <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

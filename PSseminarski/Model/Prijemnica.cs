@@ -18,8 +18,8 @@ namespace Model
         public int BrojPrijemnice { get; set; }
         public ICollection<StavkaPrijemnice> Stavke { get; set; }
         [Required]
-        public long KlijentID { get; set; }
-        public virtual Klijent Klijent { get; set; }
+        public long DobavljacID { get; set; }
+        public virtual Dobavljac Dobavljac { get; set; }
         
         public Prijemnica()
             : base()
