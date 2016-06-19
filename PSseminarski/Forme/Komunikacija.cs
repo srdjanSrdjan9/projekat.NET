@@ -67,6 +67,16 @@ namespace Forme
             return response.Uspesnost;
         }
 
+        internal bool sacuvajKupca(Kupac k)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Kreiranje_kupca;
+            transfer.TransferObjekat = k;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.Uspesnost;
+        }
+
         public bool azurirajKorisnika(Korisnik k)
         {
             TransferKlasa transfer = new TransferKlasa();

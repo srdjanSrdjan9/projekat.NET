@@ -29,7 +29,7 @@ namespace Forme
             }
         }
 
-        internal bool? sacuvajDobavljaca(string naziv, string pib, string matBr, string adresa)
+        public bool? sacuvajDobavljaca(string naziv, string pib, string matBr, string adresa)
         {
             var result = MessageBox.Show("Da li ste sigurni da želite da sačuvate dobavljača?", "Kreiranje dobavljača", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -53,6 +53,34 @@ namespace Forme
             else
             {
                 MessageBox.Show("Dobavljač nije uspešno sačuvan!");
+                return false;
+            }
+        }
+
+        public bool? sacuvajKupca(string naziv, string pib, string matBr, string adresa)
+        {
+            var result = MessageBox.Show("Da li ste sigurni da želite da sačuvate kupca?", "Kreiranje kupca", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return null;
+            }
+
+            Kupac kupac = new Kupac()
+            {
+                Naziv = naziv,
+                Pib = pib,
+                MaticniBroj = matBr,
+                Adresa = adresa
+            };
+
+            if (k.sacuvajKupca(kupac))
+            {
+                MessageBox.Show("Kupac je uspešno sačuvan!");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Kupac nije uspešno sačuvan!");
                 return false;
             }
         }

@@ -75,6 +75,12 @@ namespace Server
                             transfer.Uspesnost = dobavljac.sacuvajDobavljaca(transfer.TransferObjekat as Dobavljac);
                             formater.Serialize(tok, transfer);
                             break;
+                        case (int)Operacije.Kreiranje_kupca:
+                            SOKreiranjeKupca kupac = new SOKreiranjeKupca();
+                            transfer.Uspesnost = kupac.sacuvajKupca
+                                (transfer.TransferObjekat as Kupac);
+                            formater.Serialize(tok, transfer);
+                            break;
                         case ((int)Operacije.Kraj):
                             Console.WriteLine("Hvala na konekciji!");
                             foreach (TransferKlasa t in klijenti)

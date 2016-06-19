@@ -108,6 +108,7 @@
             this.kupciToolStripMenuItem.Name = "kupciToolStripMenuItem";
             this.kupciToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.kupciToolStripMenuItem.Text = "Kupci";
+            this.kupciToolStripMenuItem.Click += new System.EventHandler(this.kupciToolStripMenuItem_Click);
             // 
             // Homepage
             // 

@@ -31,5 +31,11 @@ namespace Forme
             KreiranjeDobavljaca k = new KreiranjeDobavljaca();
             k.ShowDialog();
         }
+
+        private void kupciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KreiranjeKupca kupac = new KreiranjeKupca();
+            kupac.ShowDialog();
+        }
     }
 }

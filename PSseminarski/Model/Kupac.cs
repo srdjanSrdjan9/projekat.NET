@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     [Serializable]
-    public class Kupac
+    public class Kupac:OpstiDomenskiObjekat
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Browsable(false)]
@@ -36,7 +36,7 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(Naziv, Adresa, Pib, MaticniBroj) VALUES (" + Naziv + "," + Adresa + "," + Pib + "," + MaticniBroj + ")";
+            return "(Naziv, Adresa, Pib, MaticniBroj) VALUES ('" + Naziv + "','" + Adresa + "','" + Pib + "','" + MaticniBroj + "')";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

@@ -157,5 +157,39 @@ namespace Sesija
         }
 
         #endregion
+
+        #region kupci
+
+        public bool sacuvajKupca(Kupac k)
+        {
+            try
+            {
+                using (var context = new PSContext())
+                {
+                    using (var transakcija = context.Database.BeginTransaction())
+                    {
+                        if (context.ubaci(k))
+                        {
+                            transakcija.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transakcija.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region dokumenti
+        #endregion
     }
 }

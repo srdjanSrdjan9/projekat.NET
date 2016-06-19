@@ -55,7 +55,7 @@
     <Compile Include="SOKreiranjeDobavljaca.cs" />
     <Compile Include="SOPretraziKorisnike.cs" />
     <Compile Include="SOBrisanjeKorisnika.cs" />
-    <Compile Include="SOKreiranjeKlijenta.cs" />
+    <Compile Include="SOKreiranjeKupca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOKreiranjeOtpremnice.cs" />
     <Compile Include="SOKreiranjePrijemnice.cs" />
