@@ -17,6 +17,7 @@ namespace Forme
         public Homepage()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             kki.poveziSeSaServerom();
         }
 

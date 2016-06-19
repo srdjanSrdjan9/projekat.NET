@@ -17,6 +17,7 @@ namespace Forme
         public KreiranjeKupca()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void SacuvajButton_Click(object sender, EventArgs e)

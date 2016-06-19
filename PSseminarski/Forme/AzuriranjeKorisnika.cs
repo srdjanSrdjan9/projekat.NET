@@ -26,6 +26,7 @@ namespace Forme
             JmbgTextBox.Text = k.Jmbg;
             DatumTextBox.Text = k.DatumRegistrovanja.ToString("dd.MM.yyyy hh:MM:ss");
             DatumTextBox.Enabled = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void AzurirajButton_Click(object sender, EventArgs e)

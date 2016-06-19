@@ -17,6 +17,7 @@ namespace Forme
         public Korisnici()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Korisnici_Load(object sender, EventArgs e)
