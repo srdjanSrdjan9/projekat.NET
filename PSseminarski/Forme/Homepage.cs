@@ -18,7 +18,10 @@ namespace Forme
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            kki.poveziSeSaServerom();
+            if (!kki.poveziSeSaServerom())
+            {
+                this.Dispose();
+            }
         }
 
         private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,6 +40,22 @@ namespace Forme
         {
             KreiranjeKupca kupac = new KreiranjeKupca();
             kupac.ShowDialog();
+        }
+
+        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KreirajPrijemnicuButton_Click(object sender, EventArgs e)
+        {
+            KreiranjePrijemnice kp = new KreiranjePrijemnice();
+            kp.ShowDialog();
+        }
+
+        private void KreirajOtpremnicuButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

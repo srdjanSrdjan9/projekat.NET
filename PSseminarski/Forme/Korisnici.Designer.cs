@@ -41,7 +41,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 90);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(453, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(609, 233);
             this.dataGridView1.TabIndex = 0;
             // 
             // DodajKorisnikaButton
@@ -76,7 +76,7 @@
             // 
             // OsveziButton
             // 
-            this.OsveziButton.Location = new System.Drawing.Point(13, 43);
+            this.OsveziButton.Location = new System.Drawing.Point(319, 12);
             this.OsveziButton.Name = "OsveziButton";
             this.OsveziButton.Size = new System.Drawing.Size(94, 23);
             this.OsveziButton.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 335);
+            this.ClientSize = new System.Drawing.Size(633, 335);
             this.Controls.Add(this.OsveziButton);
             this.Controls.Add(this.AzurirajKorisnikabButton);
             this.Controls.Add(this.BrisanjeKorisnikaButton);

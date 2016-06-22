@@ -17,6 +17,7 @@ namespace Model
         public DbSet<StavkaOtpremnice> StavkeOtpremnice { get; set; }
         public DbSet<StavkaPrijemnice> StavkePrijemnice { get; set; }
         public DbSet<Kupac> Kupci { get; set; }
+        public DbSet<Revers> Revers { get; set; }
 
         public PSContext()
             : base("name = PSseminarski")

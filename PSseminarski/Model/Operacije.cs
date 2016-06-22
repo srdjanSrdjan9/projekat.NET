@@ -18,6 +18,9 @@ namespace Model
         Kreiranje_reversa,
         Kreiranje_dobavljaca,
         Vrati_korisnike,
+        Vrati_dobavljace,
+        Vrati_kupce,
+        Vrati_Robu,
         Kraj
     }
 }

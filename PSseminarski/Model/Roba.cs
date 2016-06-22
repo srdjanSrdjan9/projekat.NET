@@ -17,7 +17,7 @@ namespace Model
 
         public string vratiImeTabele()
         {
-            return "Roba";
+            return "Robas";
         }
 
         public string vratiKljucIUslov()
@@ -28,6 +28,11 @@ namespace Model
         public string VrednostZaInsert()
         {
             return "(Naziv) VALUES (" + Naziv + ")";
+        }
+
+        public override string ToString()
+        {
+            return Naziv;
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

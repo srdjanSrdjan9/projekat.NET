@@ -42,6 +42,11 @@ namespace Model
             return "(Ime, Prezime, Adresa, Jmbg, DatumRegistrovanja) VALUES ('" + Ime + "','" + Prezime + "','" + Adresa + "','" + Jmbg + "','" + DatumRegistrovanja + "')";
         }
 
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
+
         public List<OpstiDomenskiObjekat> vratiListu()
         {
             using (var context = new PSContext())

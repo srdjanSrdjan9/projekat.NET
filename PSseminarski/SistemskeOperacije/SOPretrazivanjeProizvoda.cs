@@ -9,15 +9,6 @@ namespace SistemskeOperacije
 {
     public class SOPretrazivanjeProizvoda
     {
-        //public int PretraziProizvode(string naziv)
-        //{
-        //    using (var context = new PSContext())
-        //    {
-        //        using (var transaction = )
-        //        {
-
-        //        }
-        //    }
-        //}
+        
     }
 }

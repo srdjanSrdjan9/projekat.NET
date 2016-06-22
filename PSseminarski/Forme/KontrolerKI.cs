@@ -13,6 +13,9 @@ namespace Forme
     {
         static Komunikacija k = new Komunikacija();
         public BindingList<Korisnik> korisnici = new BindingList<Korisnik>();
+        public Prijemnica prijemnica = new Prijemnica();
+        public BindingList<Revers> revers = new BindingList<Revers>();
+        public BindingList<StavkaPrijemnice> stavkePrijemnice = new BindingList<StavkaPrijemnice>();
 
         public bool poveziSeSaServerom()
         {
@@ -174,6 +177,93 @@ namespace Forme
                 }
             }
             return false;
+        }
+
+        public void ucitajKorisnikeUComboBox(ComboBox c)
+        {
+            List<Korisnik> korisniciPomocna = new List<Korisnik>();
+            k.vratiSveKorisnike().ForEach(x => korisniciPomocna.Add(x as Korisnik));
+
+            c.DataSource = korisniciPomocna;
+        }
+
+        public void ucitajDobavljaceUCombobox(ComboBox c)
+        {
+            List<Dobavljac> dobavljaci = new List<Dobavljac>();
+            k.vratiDobavljace().ForEach(x => dobavljaci.Add(x as Dobavljac));
+
+            c.DataSource = dobavljaci;
+        }
+
+        public void ucitajKupceUComboBox(ComboBox c)
+        {
+            List<Kupac> kupci = new List<Kupac>();
+            k.vratiKupce().ForEach(x => kupci.Add(x as Kupac));
+
+            c.DataSource = kupci;
+        }
+
+        public void ucitajRobuUComboBox(ComboBox c)
+        {
+            List<Roba> roba = new List<Roba>();
+            k.vratiRobu().ForEach(x => roba.Add(x as Roba));
+
+            c.DataSource = roba;
+        }
+
+        public void DodajRevers(string jedinicaMere, int Ulaz, int Izlaz, Roba roba, int kolicina)
+        {
+            this.revers.Add(new Revers()
+            {
+                JedMere = jedinicaMere,
+                Ulaz = Ulaz,
+                Izlaz = Izlaz,
+                Roba = roba,
+                Ukupno = kolicina,
+                RedniBroj = revers.Count + 1
+            });
+        }
+
+        public void dodajStavku(Roba roba, int value, string text, double v)
+        {
+            stavkePrijemnice.Add(new StavkaPrijemnice()
+            {
+                RedniBrojStavke = stavkePrijemnice.Count + 1,
+                Roba = roba,
+                Kolicina = value,
+                JedMere = text,
+                JedCena = v,
+                UkupnaCena = value * v
+            });
+        }
+
+        internal bool sacuvajPrijemnicu(string text1, DateTime dateTime, string text2, OpstiDomenskiObjekat opstiDomenskiObjekat)
+        {
+            prijemnica.Mesto = text1;
+            prijemnica.DatumIzdavanja = dateTime;
+            prijemnica.RobuPrimio = text2;
+            if (opstiDomenskiObjekat.vratiImeTabele() == "Korisniks")
+            {
+                prijemnica.Korisnik = opstiDomenskiObjekat as Korisnik;
+            }
+            else
+            {
+                prijemnica.Dobavljac = opstiDomenskiObjekat as Dobavljac;
+            }
+
+            prijemnica.Revers = revers.ToList();
+            prijemnica.Stavke = stavkePrijemnice.ToList();
+            
+            if (k.sacuvajPrijemnicu(prijemnica))
+            {
+                MessageBox.Show("Prijemnica je uspešno sačuvana!");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Prijemnica nije uspešno sačuvana!");
+                return false;
+            }
         }
 
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace Model
 {
@@ -12,7 +13,7 @@ namespace Model
     public class StavkaPrijemnice : OpstiDomenskiObjekat
     {
         [Key]
-        [Column(Order = 2)]
+        [Column(Order = 1)]
         [Required(ErrorMessage = "Redni broj stavke prijemnice mora biti unet")]
         public int RedniBrojStavke { get; set; }
         public double JedCena { get; set; }
@@ -20,13 +21,13 @@ namespace Model
         public double UkupnaCena { get; set; }
         public string JedMere { get; set; }
         [Required]
+        [Browsable(false)]
         public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }
         [Key]
-        [Column(Order = 1)]
-        [ForeignKey("Prijemnica")]
+        [Column(Order = 0)]
+        [Browsable(false)]
         public long DokumentID { get; set; }
-        public virtual Prijemnica Prijemnica { get; set; }
 
         public StavkaPrijemnice()
         { }
@@ -43,7 +44,7 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, RobaID, DokumentID) VALUES (" + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + "," + JedMere + "," + RobaID + "," + DokumentID + ")";
+            return "(DokumentID, RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, RobaID) VALUES (" + DokumentID + "," + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + ",'" + JedMere + "'," + RobaID + ")";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

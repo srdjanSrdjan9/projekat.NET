@@ -19,15 +19,13 @@ namespace Model
         public double Kolicina { get; set; }
         public double UkupnaCena { get; set; }
         public string JedMere { get; set; }
-        public int KlasaID { get; set; }
         [Required]
         public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }
         [Key]
         [Column(Order = 1)]
-        [ForeignKey("Otpremnica")]
         public long DokumentID { get; set; }
-        public virtual Otpremnica Otpremnica { get; set; }
+        //public virtual Otpremnica Otpremnica { get; set; }
 
         public StavkaOtpremnice()
         { }
@@ -44,7 +42,7 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, KlasaID, RobaID, DokumentID) VALUES (" + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + "," + JedMere + "," + KlasaID + "," + RobaID + "," + DokumentID + ")";
+            return "(RedniBrojStavke, JedCena, Kolicina, UkupnaCena, JedMere, KlasaID, RobaID, DokumentID) VALUES (" + RedniBrojStavke + "," + JedCena + "," + Kolicina + "," + UkupnaCena + "," + JedMere + "," + RobaID + "," + DokumentID + ")";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

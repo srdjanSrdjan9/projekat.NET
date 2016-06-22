@@ -18,7 +18,6 @@ namespace Model
         public DateTime DatumIzdavanja { get; set; }
         public string Mesto { get; set; }
         public string RobuPrimio { get; set; }
-        public int RedniBroj { get; set; }
 
         public Dokument()
         {
@@ -37,7 +36,7 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(DatumIzdavanja, Mesto, RobuPrimio) VALUES + (" + DatumIzdavanja + "," + Mesto + "," + RobuPrimio + ")";
+            return "(DatumIzdavanja, Mesto, RobuPrimio) VALUES + ('" + DatumIzdavanja + "','" + Mesto + "','" + RobuPrimio + "')";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

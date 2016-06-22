@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Model</RootNamespace>
     <AssemblyName>Model</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,38 @@
     <Compile Include="Migrations\201606190957348_Ispravke.Designer.cs">
       <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606201646400_Revers.cs" />
+    <Compile Include="Migrations\201606201646400_Revers.Designer.cs">
+      <DependentUpon>201606201646400_Revers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.cs" />
+    <Compile Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.Designer.cs">
+      <DependentUpon>201606211405283_ReversDodatNaPrijemnicu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.cs" />
+    <Compile Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.Designer.cs">
+      <DependentUpon>201606220801188_IzbaceniRBnaDokumentima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220806370_KlijentiSredjeni.cs" />
+    <Compile Include="Migrations\201606220806370_KlijentiSredjeni.Designer.cs">
+      <DependentUpon>201606220806370_KlijentiSredjeni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220821209_ReverSredjen.cs" />
+    <Compile Include="Migrations\201606220821209_ReverSredjen.Designer.cs">
+      <DependentUpon>201606220821209_ReverSredjen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220835174_skinutReversSaPrijemnice.cs" />
+    <Compile Include="Migrations\201606220835174_skinutReversSaPrijemnice.Designer.cs">
+      <DependentUpon>201606220835174_skinutReversSaPrijemnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606220951364_asd1.cs" />
+    <Compile Include="Migrations\201606220951364_asd1.Designer.cs">
+      <DependentUpon>201606220951364_asd1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606221018180_dfg.cs" />
+    <Compile Include="Migrations\201606221018180_dfg.Designer.cs">
+      <DependentUpon>201606221018180_dfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacije.cs" />
     <Compile Include="Dokument.cs" />
     <Compile Include="Dobavljac.cs" />
@@ -77,6 +110,7 @@
     <Compile Include="Prijemnica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSContext.cs" />
+    <Compile Include="Revers.cs" />
     <Compile Include="Roba.cs" />
     <Compile Include="StavkaOtpremnice.cs" />
     <Compile Include="StavkaPrijemnice.cs" />
@@ -100,6 +134,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606190957348_Ispravke.resx">
       <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606201646400_Revers.resx">
+      <DependentUpon>201606201646400_Revers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.resx">
+      <DependentUpon>201606211405283_ReversDodatNaPrijemnicu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.resx">
+      <DependentUpon>201606220801188_IzbaceniRBnaDokumentima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220806370_KlijentiSredjeni.resx">
+      <DependentUpon>201606220806370_KlijentiSredjeni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220821209_ReverSredjen.resx">
+      <DependentUpon>201606220821209_ReverSredjen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220835174_skinutReversSaPrijemnice.resx">
+      <DependentUpon>201606220835174_skinutReversSaPrijemnice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606220951364_asd1.resx">
+      <DependentUpon>201606220951364_asd1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606221018180_dfg.resx">
+      <DependentUpon>201606221018180_dfg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

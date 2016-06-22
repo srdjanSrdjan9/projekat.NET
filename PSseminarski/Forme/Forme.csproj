@@ -94,6 +94,24 @@
     <Compile Include="KreiranjeKupca.Designer.cs">
       <DependentUpon>KreiranjeKupca.cs</DependentUpon>
     </Compile>
+    <Compile Include="KreiranjeOtpremnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KreiranjeOtpremnice.Designer.cs">
+      <DependentUpon>KreiranjeOtpremnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KreiranjePrijemnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KreiranjePrijemnice.Designer.cs">
+      <DependentUpon>KreiranjePrijemnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PretragaProizvoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PretragaProizvoda.Designer.cs">
+      <DependentUpon>PretragaProizvoda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AzuriranjeKorisnika.resx">
@@ -113,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KreiranjeKupca.resx">
       <DependentUpon>KreiranjeKupca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KreiranjeOtpremnice.resx">
+      <DependentUpon>KreiranjeOtpremnice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KreiranjePrijemnice.resx">
+      <DependentUpon>KreiranjePrijemnice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

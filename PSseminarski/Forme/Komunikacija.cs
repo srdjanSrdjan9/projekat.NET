@@ -34,7 +34,7 @@ namespace Forme
                 return false;
             }
         }
-
+        #region korisnici
         public List<OpstiDomenskiObjekat> vratiSveKorisnike()
         {
             TransferKlasa transfer = new TransferKlasa();
@@ -45,6 +45,16 @@ namespace Forme
             TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
             List <OpstiDomenskiObjekat> korisnici = response.TransferObjekat as List<OpstiDomenskiObjekat>;
             return korisnici;
+        }
+
+        public bool azurirajKorisnika(Korisnik k)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Azuriranje_korisnika;
+            transfer.TransferObjekat = k;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.Uspesnost;
         }
 
         public bool sacuvajKorisnika(Korisnik k)
@@ -67,7 +77,10 @@ namespace Forme
             return response.Uspesnost;
         }
 
-        internal bool sacuvajKupca(Kupac k)
+        #endregion
+
+        #region kupci
+        public bool sacuvajKupca(Kupac k)
         {
             TransferKlasa transfer = new TransferKlasa();
             transfer.Operacija = (int)Operacije.Kreiranje_kupca;
@@ -77,21 +90,56 @@ namespace Forme
             return response.Uspesnost;
         }
 
-        public bool azurirajKorisnika(Korisnik k)
+        public List<OpstiDomenskiObjekat> vratiKupce()
         {
             TransferKlasa transfer = new TransferKlasa();
-            transfer.Operacija = (int)Operacije.Azuriranje_korisnika;
-            transfer.TransferObjekat = k;
+            transfer.Operacija = (int)Operacije.Vrati_kupce;
+            transfer.TransferObjekat = new Kupac();
             formater.Serialize(tok, transfer);
             TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
-            return response.Uspesnost;
+            return response.TransferObjekat as List<OpstiDomenskiObjekat>;
         }
 
+        #endregion
+
+        #region dobavljaci
         public bool sacuvajDobavljaca(Dobavljac d)
         {
             TransferKlasa transfer = new TransferKlasa();
             transfer.Operacija = (int)Operacije.Kreiranje_dobavljaca;
             transfer.TransferObjekat = d;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.Uspesnost;
+        }
+
+        public List<OpstiDomenskiObjekat> vratiDobavljace()
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Vrati_dobavljace;
+            transfer.TransferObjekat = new Dobavljac();
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.TransferObjekat as List<OpstiDomenskiObjekat>;
+        }
+
+        #endregion
+
+        public List<OpstiDomenskiObjekat> vratiRobu()
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Vrati_Robu;
+            transfer.TransferObjekat = new Roba();
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.TransferObjekat as List<OpstiDomenskiObjekat>;
+        }
+
+        public bool sacuvajPrijemnicu(Prijemnica p)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Kreiranje_prijemnice;
+            transfer.TransferObjekat = p;
             formater.Serialize(tok, transfer);
             TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
             return response.Uspesnost;

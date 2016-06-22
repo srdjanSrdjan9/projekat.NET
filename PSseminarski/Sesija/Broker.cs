@@ -14,7 +14,7 @@ namespace Sesija
 
         private Broker()
         {
-            
+
         }
 
         public static Broker dajSesiju()
@@ -25,6 +25,67 @@ namespace Sesija
             }
 
             return instanca;
+        }
+
+        public bool sacuvajPrijemnicu(Prijemnica prijemnica)
+        {
+            int reversCount = 0;
+            int stavkeCount = 0;
+            try
+            {
+                using (var context = new PSContext())
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        string uputPr = "insert into Dokuments " + prijemnica.VrednostZaInsert();
+                        int rez1 = context.Database.ExecuteSqlCommand(uputPr);
+                        long id = prijemnica.DokumentID;
+                        //context.Dokumenti.Add(prijemnica);
+                        //context.SaveChanges();
+                        //long id = prijemnica.DokumentID;
+                        string upit = "";
+
+                        foreach (StavkaPrijemnice item in prijemnica.Stavke)
+                        {
+                            // item.DokumentID = id;
+                            upit = "insert into StavkaPrijemnices " + item.VrednostZaInsert();
+
+                            int rez = context.Database.ExecuteSqlCommand(upit);
+                            if (rez == 1)
+                            {
+                                stavkeCount++;
+                            }
+                            //context.StavkePrijemnice.Add(item);
+                            
+                        }
+
+                        foreach (Revers item in prijemnica.Revers)
+                        {
+                            //item.Prijemnica = prijemnica;
+                            item.Prijemnica = prijemnica;
+                            context.Revers.Add(item);
+                            reversCount++;
+                        }
+
+                        context.SaveChanges();
+
+                        if (reversCount == prijemnica.Revers.Count && stavkeCount == prijemnica.Stavke.Count)
+                        {
+                            transaction.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transaction.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         #region genericke metode
@@ -105,7 +166,7 @@ namespace Sesija
                 {
                     using (var transaction = context.Database.BeginTransaction())
                     {
-                        string query = "UPDATE Korisniks SET Ime='" + k.Ime + "', Prezime='" + k.Prezime + "',Adresa='" + k.Adresa + "',Jmbg='" + k.Jmbg + "' WHERE Korisniks.KorisnikID="+k.KorisnikID;
+                        string query = "UPDATE Korisniks SET Ime='" + k.Ime + "', Prezime='" + k.Prezime + "',Adresa='" + k.Adresa + "',Jmbg='" + k.Jmbg + "' WHERE Korisniks.KorisnikID=" + k.KorisnikID;
                         int result = context.Database.ExecuteSqlCommand(query);
                         if (result == 1)
                         {

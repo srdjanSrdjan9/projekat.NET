@@ -39,6 +39,11 @@ namespace Model
             return "(Naziv, Adresa, Pib, MaticniBroj) VALUES ('" + Naziv + "','" + Adresa + "','" + Pib + "','" + MaticniBroj + "')";
         }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
         public List<OpstiDomenskiObjekat> vratiListu()
         {
             using (var context = new PSContext())

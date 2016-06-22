@@ -81,6 +81,50 @@ namespace Server
                                 (transfer.TransferObjekat as Kupac);
                             formater.Serialize(tok, transfer);
                             break;
+                        case (int)Operacije.Vrati_dobavljace:
+                            SOVratiDobavljace sovd = new SOVratiDobavljace();
+                            try
+                            {
+                                transfer.TransferObjekat = sovd.vratiSveDobavljace();
+                                transfer.Uspesnost = true;
+                            }
+                            catch (Exception)
+                            {
+                                transfer.Uspesnost = false;
+                            }
+                            formater.Serialize(tok, transfer);
+                            break;
+                        case (int)Operacije.Vrati_Robu:
+                            SOVratiRobu sovr = new SOVratiRobu();
+                            try
+                            {
+                                transfer.TransferObjekat = sovr.vratiProizvode();
+                                transfer.Uspesnost = true;
+                            }
+                            catch (Exception)
+                            {
+                                transfer.Uspesnost = false;
+                            }
+                            formater.Serialize(tok, transfer);
+                            break;
+                        case (int)Operacije.Vrati_kupce:
+                            SOVratiKupce kupci = new SOVratiKupce();
+                            try
+                            {
+                                transfer.TransferObjekat = kupci.vratiKupce();
+                                transfer.Uspesnost = true;
+                            }
+                            catch (Exception)
+                            {
+                                transfer.Uspesnost = false;
+                            }
+                            formater.Serialize(tok, transfer);
+                            break;
+                        case (int)Operacije.Kreiranje_prijemnice:
+                            SOKreiranjePrijemnice prijemnica = new SOKreiranjePrijemnice();
+                            transfer.Uspesnost = prijemnica.KreirajOtpremnicu(transfer.TransferObjekat as Prijemnica);
+                            formater.Serialize(tok, transfer);
+                            break;
                         case ((int)Operacije.Kraj):
                             Console.WriteLine("Hvala na konekciji!");
                             foreach (TransferKlasa t in klijenti)
