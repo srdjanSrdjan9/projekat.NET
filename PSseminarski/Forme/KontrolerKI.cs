@@ -130,13 +130,13 @@ namespace Forme
             }
         }
 
-        public bool ObrisiKorisnika(long id)
+        public bool ObrisiKorisnika(Korisnik ka)
         {
             var result = MessageBox.Show("Da li ste sigurni da želite da obrišete izabranog korisnika? Potvrdom brisanja ne možete povratiti obrisanog korisnika!", "Brisanje korisnika", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                if (k.obrisiKorisnika(id))
+                if (k.obrisiKorisnika(ka))
                 {
                     MessageBox.Show("Korisnik je uspešno obrisan!");
                     return true;

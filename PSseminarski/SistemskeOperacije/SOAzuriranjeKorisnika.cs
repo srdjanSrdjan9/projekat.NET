@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije
 {
-    public class SOAzuriranjeKorisnika
+    public class SOAzuriranjeKorisnika : OpstaSIstemskaOperacija
     {
-        public bool azurirajKorisnika(Korisnik k)
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().azurirajKorisnika(k);
+            return Broker.dajSesiju().azurirajKorisnika(o);
         }
     }
 }

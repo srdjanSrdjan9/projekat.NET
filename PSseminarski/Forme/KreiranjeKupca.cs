@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KontrolerKorisnickogInterfejsa;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Forme
 {
     public partial class KreiranjeKupca : Form
     {
-        KontrolerKI kki = new KontrolerKI();
+        KlijentiKontroler kki = new KlijentiKontroler();
 
         public KreiranjeKupca()
         {

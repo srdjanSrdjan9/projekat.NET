@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using KontrolerKorisnickogInterfejsa;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,16 @@ namespace Forme
 {
     public partial class KreiranjePrijemnice : Form
     {
-        public KontrolerKI kki = new KontrolerKI();
+        DokumentiKontroler kki = new DokumentiKontroler();
+        KorisniciKontroler korisnici = new KorisniciKontroler();
+        KlijentiKontroler klijenti = new KlijentiKontroler();
 
         public KreiranjePrijemnice()
         {
             InitializeComponent();
             KorisnikRadioButton.Checked = true;
             DobavljacRadioButton.Checked = false;
-            kki.ucitajKorisnikeUComboBox(KlijentiComboBox);
+            korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
             kki.ucitajRobuUComboBox(RobaComboBox);
             kki.ucitajRobuUComboBox(comboBox1);
             dataGridView1.DataSource = kki.revers;
@@ -35,13 +38,13 @@ namespace Forme
         private void DobavljacRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             KorisnikRadioButton.Checked = false;
-            kki.ucitajDobavljaceUCombobox(KlijentiComboBox);
+            klijenti.ucitajDobavljaceUCombobox(KlijentiComboBox);
         }
 
         private void KorisnikRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             DobavljacRadioButton.Checked = false;
-            kki.ucitajKorisnikeUComboBox(KlijentiComboBox);
+            korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
         }
 
         private void DodajButton_Click(object sender, EventArgs e)

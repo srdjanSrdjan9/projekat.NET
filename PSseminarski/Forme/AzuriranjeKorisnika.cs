@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KontrolerKorisnickogInterfejsa;
 
 namespace Forme
 {
     public partial class AzuriranjeKorisnika : Form
     {
         Korisnik korisnik = new Korisnik();
-        KontrolerKI kki = new KontrolerKI();
+        KorisniciKontroler kki = new KorisniciKontroler();
 
         public AzuriranjeKorisnika(Korisnik k)
         {

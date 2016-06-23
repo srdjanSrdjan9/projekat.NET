@@ -67,11 +67,12 @@ namespace Forme
             return response.Uspesnost;
         }
 
-        public bool obrisiKorisnika(long id)
+        public bool obrisiKorisnika(Korisnik k)
         {
             TransferKlasa transfer = new TransferKlasa();
-            transfer.Signal = id;
+            transfer.Signal = k.KorisnikID;
             transfer.Operacija = (int)Operacije.Brisanje_korisnika;
+            transfer.TransferObjekat = k;
             formater.Serialize(tok, transfer);
             TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
             return response.Uspesnost;

@@ -27,66 +27,61 @@ namespace Sesija
             return instanca;
         }
 
-        public bool sacuvajPrijemnicu(Prijemnica prijemnica)
-        {
-            int reversCount = 0;
-            int stavkeCount = 0;
-            try
-            {
-                using (var context = new PSContext())
-                {
-                    using (var transaction = context.Database.BeginTransaction())
-                    {
-                        string uputPr = "insert into Dokuments " + prijemnica.VrednostZaInsert();
-                        int rez1 = context.Database.ExecuteSqlCommand(uputPr);
-                        long id = prijemnica.DokumentID;
-                        //context.Dokumenti.Add(prijemnica);
-                        //context.SaveChanges();
-                        //long id = prijemnica.DokumentID;
-                        string upit = "";
+        
 
-                        foreach (StavkaPrijemnice item in prijemnica.Stavke)
-                        {
-                            // item.DokumentID = id;
-                            upit = "insert into StavkaPrijemnices " + item.VrednostZaInsert();
+        //public bool sacuvajPrijemnicu(Prijemnica prijemnica)
+        //{
+        //    //int reversCount = 0;
+        //    //int stavkeCount = 0;
+        //    try
+        //    {
+        //        using (var context = new PSContext())
+        //        {
+        //            using (var transaction = context.Database.BeginTransaction())
+        //            {
+        //                //string uputPr = "insert into Dokuments (DatumIzdavanja, Mesto, RobuPrimio, Discriminator)" ;
+        //                //int rez1 = context.Database.ExecuteSqlCommand(uputPr);
 
-                            int rez = context.Database.ExecuteSqlCommand(upit);
-                            if (rez == 1)
-                            {
-                                stavkeCount++;
-                            }
-                            //context.StavkePrijemnice.Add(item);
-                            
-                        }
+        //                context.Dokumenti.Add(prijemnica);
+        //                context.SaveChanges();
+        //                long id = prijemnica.DokumentID;
 
-                        foreach (Revers item in prijemnica.Revers)
-                        {
-                            //item.Prijemnica = prijemnica;
-                            item.Prijemnica = prijemnica;
-                            context.Revers.Add(item);
-                            reversCount++;
-                        }
+        //                string upit = "";
 
-                        context.SaveChanges();
+        //                //foreach (StavkaPrijemnice item in prijemnica.Stavke)
+        //                //{
+        //                //    // item.DokumentID = id;
+        //                //    upit = "insert into StavkaPrijemnices " + item.VrednostZaInsert();
 
-                        if (reversCount == prijemnica.Revers.Count && stavkeCount == prijemnica.Stavke.Count)
-                        {
-                            transaction.Commit();
-                            return true;
-                        }
-                        else
-                        {
-                            transaction.Rollback();
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
+        //                //    int rez = context.Database.ExecuteSqlCommand(upit);
+        //                //    if (rez == 1)
+        //                //    {
+        //                //        stavkeCount++;
+        //                //    }
+        //                //    //context.StavkePrijemnice.Add(item);
+
+        //                //}
+
+        //                //foreach (Revers item in prijemnica.Revers)
+        //                //{
+        //                //    //item.Prijemnica = prijemnica;
+        //                //    item.Prijemnica = prijemnica;
+        //                //    context.Revers.Add(item);
+        //                //    reversCount++;
+        //                //}
+
+        //                context.SaveChanges();
+
+        //                transaction.Commit();
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         #region genericke metode
 
@@ -105,8 +100,9 @@ namespace Sesija
         #endregion
 
         #region korisnici
-        public bool sacuvajKorisnika(Korisnik k)
+        public bool sacuvajKorisnika(OpstiDomenskiObjekat o)
         {
+            Korisnik k = o as Korisnik;
             try
             {
                 using (var context = new PSContext())
@@ -132,15 +128,16 @@ namespace Sesija
             }
         }
 
-        public bool ObrisiKorisnika(long id)
+        public bool ObrisiKorisnika(OpstiDomenskiObjekat o)
         {
+            Korisnik k = o as Korisnik;
             try
             {
                 using (var context = new PSContext())
                 {
                     using (var transaction = context.Database.BeginTransaction())
                     {
-                        string query = "DELETE FROM Korisniks WHERE Korisniks.KorisnikID=" + id;
+                        string query = "DELETE FROM Korisniks WHERE Korisniks.KorisnikID=" + k.KorisnikID;
                         int result = context.Database.ExecuteSqlCommand(query);
                         if (result == 1)
                         {
@@ -152,14 +149,15 @@ namespace Sesija
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
         }
 
-        public bool azurirajKorisnika(Korisnik k)
+        public bool azurirajKorisnika(OpstiDomenskiObjekat o)
         {
+            Korisnik k = o as Korisnik;
             try
             {
                 using (var context = new PSContext())
@@ -190,8 +188,9 @@ namespace Sesija
 
         #region dobavljaci
 
-        public bool sacuvajDobavljaca(Dobavljac d)
+        public bool sacuvajDobavljaca(OpstiDomenskiObjekat o)
         {
+            Dobavljac d = o as Dobavljac;
             try
             {
                 using (var context = new PSContext())
@@ -221,8 +220,9 @@ namespace Sesija
 
         #region kupci
 
-        public bool sacuvajKupca(Kupac k)
+        public bool sacuvajKupca(OpstiDomenskiObjekat o)
         {
+            Kupac k = o as Kupac;
             try
             {
                 using (var context = new PSContext())
@@ -251,6 +251,65 @@ namespace Sesija
         #endregion
 
         #region dokumenti
+
+        public bool sacuvajOtpremnicu(OpstiDomenskiObjekat o)
+        {
+            Otpremnica otpremnica = o as Otpremnica;
+            try
+            {
+                using (var context = new PSContext())
+                {
+                    using (var transakcija = context.Database.BeginTransaction())
+                    {
+                        context.Dokumenti.Add(otpremnica);
+                        if (context.SaveChanges() > 0)
+                        {
+                            transakcija.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transakcija.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool sacuvajPrijemnicu(OpstiDomenskiObjekat o)
+        {
+            Prijemnica prijemnica = o as Prijemnica;
+            try
+            {
+                using (var context = new PSContext())
+                {
+                    using (var transakcija = context.Database.BeginTransaction())
+                    {
+                        context.Dokumenti.Add(prijemnica);
+                        if (context.SaveChanges() > 0)
+                        {
+                            transakcija.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transakcija.Rollback();
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }

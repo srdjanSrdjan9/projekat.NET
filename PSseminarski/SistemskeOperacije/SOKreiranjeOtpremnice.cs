@@ -4,32 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOKreiranjeOtpremnice
+    public class SOKreiranjeOtpremnice : OpstaSIstemskaOperacija
     {
-        public int KreirajOtpremnicu(Otpremnica o)
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            using (var context = new PSContext())
-            {
-                using (var transaction = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        context.Dokumenti.Add(o);
-                        context.SaveChanges();
-                        transaction.Commit();
-                    }
-                    catch (Exception e)
-                    {
-                        transaction.Rollback();
-                        return 0;
-                    }
-
-                }
-            }
-            return 1;
+            return Broker.dajSesiju().sacuvajOtpremnicu(o);
         }
     }
 }

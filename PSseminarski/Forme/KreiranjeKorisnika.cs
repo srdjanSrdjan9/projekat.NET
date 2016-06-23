@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using KontrolerKorisnickogInterfejsa;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace Forme
 {
     public partial class KreiranjeKorisnika : Form
     {
-        KontrolerKI kki = new KontrolerKI();
+        KorisniciKontroler kki = new KorisniciKontroler();
 
         public KreiranjeKorisnika()
         {

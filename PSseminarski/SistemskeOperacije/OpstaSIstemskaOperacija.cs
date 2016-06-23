@@ -7,7 +7,7 @@ using Model;
 
 namespace SistemskeOperacije
 {
-    abstract class OpstaSIstemskaOperacija
+    public abstract class OpstaSIstemskaOperacija
     {
         public bool IzvrsiSo(OpstiDomenskiObjekat odo)
         {

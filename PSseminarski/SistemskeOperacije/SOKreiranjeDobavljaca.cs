@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije
 {
-    public class SOKreiranjeDobavljaca
+    public class SOKreiranjeDobavljaca : OpstaSIstemskaOperacija
     {
-        public bool sacuvajDobavljaca(Dobavljac d)
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().sacuvajDobavljaca(d);
+            return Broker.dajSesiju().sacuvajDobavljaca(o);
         }
     }
 }

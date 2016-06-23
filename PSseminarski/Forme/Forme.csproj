@@ -161,6 +161,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KontrolerKorisnickogInterfejsa\KontrolerKorisnickogInterfejsa.csproj">
+      <Project>{04849FDD-BD2A-4889-84D0-FA2B40890E30}</Project>
+      <Name>KontrolerKorisnickogInterfejsa</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{B1B5F949-0213-4213-9BD2-270F447C3345}</Project>
       <Name>Model</Name>

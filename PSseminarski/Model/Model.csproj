@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201606221018180_dfg.Designer.cs">
       <DependentUpon>201606221018180_dfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606232127158_kfg.cs" />
+    <Compile Include="Migrations\201606232127158_kfg.Designer.cs">
+      <DependentUpon>201606232127158_kfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacije.cs" />
     <Compile Include="Dokument.cs" />
     <Compile Include="Dobavljac.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606221018180_dfg.resx">
       <DependentUpon>201606221018180_dfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606232127158_kfg.resx">
+      <DependentUpon>201606232127158_kfg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../Model/Model.csproj",
+      "bin": {
+        "assembly": "../../Model/obj/{configuration}/Model.dll",
+        "pdb": "../../Model/obj/{configuration}/Model.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}

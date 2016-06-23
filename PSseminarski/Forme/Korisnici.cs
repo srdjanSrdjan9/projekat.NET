@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KontrolerKorisnickogInterfejsa;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Forme
 {
     public partial class Korisnici : Form
     {
-        KontrolerKI kki = new KontrolerKI();
+        KorisniciKontroler kki = new KorisniciKontroler();
 
         public Korisnici()
         {
@@ -38,7 +39,7 @@ namespace Forme
 
         private void BrisanjeKorisnikaButton_Click(object sender, EventArgs e)
         {
-            kki.ObrisiKorisnika(kki.korisnici.ElementAt(dataGridView1.Rows.IndexOf(dataGridView1.SelectedRows[0])).KorisnikID);
+            kki.ObrisiKorisnika(kki.korisnici.ElementAt(dataGridView1.Rows.IndexOf(dataGridView1.SelectedRows[0])));
         }
 
         private void AzurirajKorisnikabButton_Click(object sender, EventArgs e)

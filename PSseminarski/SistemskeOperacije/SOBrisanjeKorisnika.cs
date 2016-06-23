@@ -8,11 +8,11 @@ using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOBrisanjeKorisnika
+    public class SOBrisanjeKorisnika:OpstaSIstemskaOperacija
     {
-        public bool obrisiKorisnika(long id)
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().ObrisiKorisnika(id);
+            return Broker.dajSesiju().ObrisiKorisnika(o);
         }
     }
 }

@@ -9,11 +9,11 @@ using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOKreiranjeKupca
+    public class SOKreiranjeKupca:OpstaSIstemskaOperacija
     {
-        public bool sacuvajKupca(Kupac k)
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().sacuvajKupca(k);
+            return Broker.dajSesiju().sacuvajKupca(o);
         }
     }
 }

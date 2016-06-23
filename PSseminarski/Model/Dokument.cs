@@ -36,7 +36,7 @@ namespace Model
 
         public string VrednostZaInsert()
         {
-            return "(DatumIzdavanja, Mesto, RobuPrimio) VALUES + ('" + DatumIzdavanja + "','" + Mesto + "','" + RobuPrimio + "')";
+            return "(DatumIzdavanja, Mesto, RobuPrimio) VALUES ('" + DatumIzdavanja + "','" + Mesto + "','" + RobuPrimio + "')";
         }
 
         public List<OpstiDomenskiObjekat> vratiListu()

@@ -26,8 +26,6 @@ namespace Server
             ThreadStart ts = obradaPodataka;
             Thread nit = new Thread(ts);
             nit.Start();
-
-
         }
 
         private void obradaPodataka()
@@ -57,27 +55,27 @@ namespace Server
                             break;
                         case (int)Operacije.Kreiranje_korisnika:
                             SOKreirajKorisnika kreiranje = new SOKreirajKorisnika();
-                            transfer.Uspesnost = kreiranje.sacuvajKorisnika(transfer.TransferObjekat as Korisnik);
+                            transfer.Uspesnost = kreiranje.IzvrsiSo(transfer.TransferObjekat as Korisnik);
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Brisanje_korisnika:
                             SOBrisanjeKorisnika brisanje = new SOBrisanjeKorisnika();
-                            transfer.Uspesnost = brisanje.obrisiKorisnika(transfer.Signal);
+                            transfer.Uspesnost = brisanje.IzvrsiSo(transfer.TransferObjekat as Korisnik);
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Azuriranje_korisnika:
                             SOAzuriranjeKorisnika azuriranje = new SOAzuriranjeKorisnika();
-                            transfer.Uspesnost = azuriranje.azurirajKorisnika(transfer.TransferObjekat as Korisnik);
+                            transfer.Uspesnost = azuriranje.IzvrsiSo(transfer.TransferObjekat as Korisnik);
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Kreiranje_dobavljaca:
                             SOKreiranjeDobavljaca dobavljac = new SOKreiranjeDobavljaca();
-                            transfer.Uspesnost = dobavljac.sacuvajDobavljaca(transfer.TransferObjekat as Dobavljac);
+                            transfer.Uspesnost = dobavljac.IzvrsiSo(transfer.TransferObjekat as Dobavljac);
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Kreiranje_kupca:
                             SOKreiranjeKupca kupac = new SOKreiranjeKupca();
-                            transfer.Uspesnost = kupac.sacuvajKupca
+                            transfer.Uspesnost = kupac.IzvrsiSo
                                 (transfer.TransferObjekat as Kupac);
                             formater.Serialize(tok, transfer);
                             break;
@@ -122,7 +120,12 @@ namespace Server
                             break;
                         case (int)Operacije.Kreiranje_prijemnice:
                             SOKreiranjePrijemnice prijemnica = new SOKreiranjePrijemnice();
-                            transfer.Uspesnost = prijemnica.KreirajOtpremnicu(transfer.TransferObjekat as Prijemnica);
+                            transfer.Uspesnost = prijemnica.IzvrsiSo(transfer.TransferObjekat as Prijemnica);
+                            formater.Serialize(tok, transfer);
+                            break;
+                        case (int)Operacije.Kreiranje_otpremnice:
+                            SOKreiranjeOtpremnice otpr = new SOKreiranjeOtpremnice();
+                            transfer.Uspesnost = otpr.IzvrsiSo(transfer.TransferObjekat as Otpremnica);
                             formater.Serialize(tok, transfer);
                             break;
                         case ((int)Operacije.Kraj):

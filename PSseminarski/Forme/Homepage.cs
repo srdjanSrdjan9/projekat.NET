@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KontrolerKorisnickogInterfejsa;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,8 @@ namespace Forme
 {
     public partial class Homepage : Form
     {
-        KontrolerKI kki = new KontrolerKI();
-
+        DokumentiKontroler kki = new DokumentiKontroler();
+        
         public Homepage()
         {
             InitializeComponent();
@@ -55,7 +56,8 @@ namespace Forme
 
         private void KreirajOtpremnicuButton_Click(object sender, EventArgs e)
         {
-
+            KreiranjeOtpremnice otp = new KreiranjeOtpremnice();
+            otp.ShowDialog();
         }
     }
 }
