@@ -21,6 +21,7 @@ namespace Model
         Vrati_dobavljace,
         Vrati_kupce,
         Vrati_Robu,
+        Vrati_dokumenta,
         Kraj
     }
 }

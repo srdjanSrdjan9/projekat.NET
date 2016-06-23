@@ -8,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace SistemskeOperacije
 {
-    public class SOPretraziKorisnike
+    public class SOPretraziKorisnike:OpstaSIstemskaOperacija
     {
-        public List<OpstiDomenskiObjekat> vratiKorisnike()
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().vratiSve(new Korisnik());
+            try
+            {
+                Lista = Broker.dajSesiju().vratiSve(new Korisnik());
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

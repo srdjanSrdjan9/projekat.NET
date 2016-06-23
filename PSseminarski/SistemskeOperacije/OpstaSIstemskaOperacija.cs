@@ -9,6 +9,14 @@ namespace SistemskeOperacije
 {
     public abstract class OpstaSIstemskaOperacija
     {
+        List<OpstiDomenskiObjekat> lista;
+
+        public List<OpstiDomenskiObjekat> Lista
+        {
+            get { return lista; }
+            set { lista = value; }
+        }
+
         public bool IzvrsiSo(OpstiDomenskiObjekat odo)
         {
             bool rezultat;

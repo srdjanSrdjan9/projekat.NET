@@ -22,7 +22,9 @@ namespace Model
 
         public PSContext()
             : base("name = PSseminarski")
-        { }
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

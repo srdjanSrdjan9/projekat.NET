@@ -27,7 +27,7 @@ namespace Sesija
             return instanca;
         }
 
-        
+
 
         //public bool sacuvajPrijemnicu(Prijemnica prijemnica)
         //{
@@ -84,6 +84,17 @@ namespace Sesija
         //}
 
         #region genericke metode
+
+        public List<OpstiDomenskiObjekat> vratiDokumenta()
+        {
+            List<OpstiDomenskiObjekat> dokumenti = new List<OpstiDomenskiObjekat>();
+            using (var context = new PSContext())
+            {
+                List<Dokument> asd = context.Dokumenti.ToList();
+                asd.ForEach(x => dokumenti.Add(x as OpstiDomenskiObjekat));
+            }
+            return dokumenti;
+        }
 
         public List<OpstiDomenskiObjekat> vratiSve(OpstiDomenskiObjekat odo)
         {

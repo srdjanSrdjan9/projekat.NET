@@ -42,15 +42,8 @@ namespace Server
                     {
                         case (int)Operacije.Vrati_korisnike:
                             SOPretraziKorisnike so = new SOPretraziKorisnike();
-                            try
-                            {
-                                transfer.TransferObjekat = so.vratiKorisnike();
-                                transfer.Uspesnost = true;
-                            }
-                            catch (Exception)
-                            {
-                                transfer.Uspesnost = false;
-                            }
+                            transfer.Uspesnost = so.IzvrsiSo(new Korisnik());
+                            transfer.TransferObjekat = so.Lista;
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Kreiranje_korisnika:
@@ -81,41 +74,20 @@ namespace Server
                             break;
                         case (int)Operacije.Vrati_dobavljace:
                             SOVratiDobavljace sovd = new SOVratiDobavljace();
-                            try
-                            {
-                                transfer.TransferObjekat = sovd.vratiSveDobavljace();
-                                transfer.Uspesnost = true;
-                            }
-                            catch (Exception)
-                            {
-                                transfer.Uspesnost = false;
-                            }
+                            transfer.Uspesnost = sovd.IzvrsiSo(new Dobavljac());
+                            transfer.TransferObjekat = sovd.Lista;
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Vrati_Robu:
                             SOVratiRobu sovr = new SOVratiRobu();
-                            try
-                            {
-                                transfer.TransferObjekat = sovr.vratiProizvode();
-                                transfer.Uspesnost = true;
-                            }
-                            catch (Exception)
-                            {
-                                transfer.Uspesnost = false;
-                            }
+                            transfer.Uspesnost = sovr.IzvrsiSo(new Roba());
+                            transfer.TransferObjekat = sovr.Lista;
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Vrati_kupce:
                             SOVratiKupce kupci = new SOVratiKupce();
-                            try
-                            {
-                                transfer.TransferObjekat = kupci.vratiKupce();
-                                transfer.Uspesnost = true;
-                            }
-                            catch (Exception)
-                            {
-                                transfer.Uspesnost = false;
-                            }
+                            transfer.Uspesnost = kupci.IzvrsiSo(new Kupac());
+                            transfer.TransferObjekat = kupci.Lista;
                             formater.Serialize(tok, transfer);
                             break;
                         case (int)Operacije.Kreiranje_prijemnice:
@@ -126,6 +98,12 @@ namespace Server
                         case (int)Operacije.Kreiranje_otpremnice:
                             SOKreiranjeOtpremnice otpr = new SOKreiranjeOtpremnice();
                             transfer.Uspesnost = otpr.IzvrsiSo(transfer.TransferObjekat as Otpremnica);
+                            formater.Serialize(tok, transfer);
+                            break;
+                        case (int)Operacije.Vrati_dokumenta:
+                            SOVratiDokumente dok = new SOVratiDokumente();
+                            transfer.Uspesnost = dok.IzvrsiSo(new Otpremnica());
+                            transfer.TransferObjekat = dok.Lista;
                             formater.Serialize(tok, transfer);
                             break;
                         case ((int)Operacije.Kraj):

@@ -61,6 +61,7 @@
     <Compile Include="SOKreiranjePrijemnice.cs" />
     <Compile Include="SOPretrazivanjeProizvoda.cs" />
     <Compile Include="SOVratiDobavljace.cs" />
+    <Compile Include="SOVratiDokumente.cs" />
     <Compile Include="SOVratiKupce.cs" />
     <Compile Include="SOVratiRobu.cs" />
   </ItemGroup>

@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
 using Sesija;
+using Model;
 
 namespace SistemskeOperacije
 {
-    public class SOVratiRobu : OpstaSIstemskaOperacija
+    public class SOVratiDokumente : OpstaSIstemskaOperacija
     {
         public override bool izvrsi(OpstiDomenskiObjekat o)
         {
             try
             {
-                Lista = Broker.dajSesiju().vratiSve(new Roba());
+                Lista = Broker.dajSesiju().vratiDokumenta();
                 return true;
             }
-            catch (Exception)
+            catch (Exception exex)
             {
                 return false;
             }

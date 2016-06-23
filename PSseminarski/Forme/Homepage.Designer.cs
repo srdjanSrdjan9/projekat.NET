@@ -30,15 +30,16 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dokumentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dobavljačiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kupciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DokumentiDataGridView = new System.Windows.Forms.DataGridView();
-            this.KreirajPrijemnicuButton = new System.Windows.Forms.Button();
             this.KreirajOtpremnicuButton = new System.Windows.Forms.Button();
-            this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KreirajPrijemnicuButton = new System.Windows.Forms.Button();
+            this.DokumentiDataGridView = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DokumentiDataGridView)).BeginInit();
@@ -62,6 +63,13 @@
             this.dokumentiToolStripMenuItem.Name = "dokumentiToolStripMenuItem";
             this.dokumentiToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.dokumentiToolStripMenuItem.Text = "Proizvodi";
+            // 
+            // pretragaProizvodaToolStripMenuItem
+            // 
+            this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
+            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
+            this.pretragaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.pretragaProizvodaToolStripMenuItem_Click);
             // 
             // klijentiToolStripMenuItem
             // 
@@ -96,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.KreirajOtpremnicuButton);
             this.groupBox1.Controls.Add(this.KreirajPrijemnicuButton);
             this.groupBox1.Controls.Add(this.DokumentiDataGridView);
@@ -105,6 +114,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dokumenti";
+            // 
+            // KreirajOtpremnicuButton
+            // 
+            this.KreirajOtpremnicuButton.Location = new System.Drawing.Point(110, 63);
+            this.KreirajOtpremnicuButton.Name = "KreirajOtpremnicuButton";
+            this.KreirajOtpremnicuButton.Size = new System.Drawing.Size(100, 23);
+            this.KreirajOtpremnicuButton.TabIndex = 2;
+            this.KreirajOtpremnicuButton.Text = "Kreiraj otpremnicu";
+            this.KreirajOtpremnicuButton.UseVisualStyleBackColor = true;
+            this.KreirajOtpremnicuButton.Click += new System.EventHandler(this.KreirajOtpremnicuButton_Click);
+            // 
+            // KreirajPrijemnicuButton
+            // 
+            this.KreirajPrijemnicuButton.Location = new System.Drawing.Point(7, 64);
+            this.KreirajPrijemnicuButton.Name = "KreirajPrijemnicuButton";
+            this.KreirajPrijemnicuButton.Size = new System.Drawing.Size(96, 23);
+            this.KreirajPrijemnicuButton.TabIndex = 1;
+            this.KreirajPrijemnicuButton.Text = "Kreiraj prijemnicu";
+            this.KreirajPrijemnicuButton.UseVisualStyleBackColor = true;
+            this.KreirajPrijemnicuButton.Click += new System.EventHandler(this.KreirajPrijemnicuButton_Click);
             // 
             // DokumentiDataGridView
             // 
@@ -117,32 +146,15 @@
             this.DokumentiDataGridView.Size = new System.Drawing.Size(616, 245);
             this.DokumentiDataGridView.TabIndex = 0;
             // 
-            // KreirajPrijemnicuButton
+            // button1
             // 
-            this.KreirajPrijemnicuButton.Location = new System.Drawing.Point(7, 64);
-            this.KreirajPrijemnicuButton.Name = "KreirajPrijemnicuButton";
-            this.KreirajPrijemnicuButton.Size = new System.Drawing.Size(96, 23);
-            this.KreirajPrijemnicuButton.TabIndex = 1;
-            this.KreirajPrijemnicuButton.Text = "Kreiraj prijemnicu";
-            this.KreirajPrijemnicuButton.UseVisualStyleBackColor = true;
-            this.KreirajPrijemnicuButton.Click += new System.EventHandler(this.KreirajPrijemnicuButton_Click);
-            // 
-            // KreirajOtpremnicuButton
-            // 
-            this.KreirajOtpremnicuButton.Location = new System.Drawing.Point(110, 63);
-            this.KreirajOtpremnicuButton.Name = "KreirajOtpremnicuButton";
-            this.KreirajOtpremnicuButton.Size = new System.Drawing.Size(100, 23);
-            this.KreirajOtpremnicuButton.TabIndex = 2;
-            this.KreirajOtpremnicuButton.Text = "Kreiraj otpremnicu";
-            this.KreirajOtpremnicuButton.UseVisualStyleBackColor = true;
-            this.KreirajOtpremnicuButton.Click += new System.EventHandler(this.KreirajOtpremnicuButton_Click);
-            // 
-            // pretragaProizvodaToolStripMenuItem
-            // 
-            this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
-            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
-            this.pretragaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.pretragaProizvodaToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(217, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Osveži podatke";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Homepage
             // 
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Button KreirajPrijemnicuButton;
         private System.Windows.Forms.DataGridView DokumentiDataGridView;
         private System.Windows.Forms.ToolStripMenuItem pretragaProizvodaToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

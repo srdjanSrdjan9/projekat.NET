@@ -146,6 +146,16 @@ namespace KontrolerKorisnickogInterfejsa
             return response.TransferObjekat as List<OpstiDomenskiObjekat>;
         }
 
+        public List<OpstiDomenskiObjekat> vratiDokumenta()
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Vrati_dokumenta;
+            transfer.TransferObjekat = new Otpremnica();
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.TransferObjekat as List<OpstiDomenskiObjekat>;
+        }
+
         public bool sacuvajPrijemnicu(Prijemnica p)
         {
             TransferKlasa transfer = new TransferKlasa();

@@ -23,6 +23,7 @@ namespace Forme
             {
                 this.Dispose();
             }
+            kki.ucitajDokumentaUDataGrid(DokumentiDataGridView);
         }
 
         private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace Forme
         {
             KreiranjeOtpremnice otp = new KreiranjeOtpremnice();
             otp.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            kki.ucitajDokumentaUDataGrid(DokumentiDataGridView);
         }
     }
 }

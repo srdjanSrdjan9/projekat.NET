@@ -8,11 +8,19 @@ using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOVratiKupce
+    public class SOVratiKupce : OpstaSIstemskaOperacija
     {
-        public List<OpstiDomenskiObjekat> vratiKupce()
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().vratiSve(new Kupac());
+            try
+            {
+                Lista = Broker.dajSesiju().vratiSve(new Kupac());
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -16,6 +16,14 @@ namespace KontrolerKorisnickogInterfejsa
         public BindingList<StavkaPrijemnice> stavkePrijemnice = new BindingList<StavkaPrijemnice>();
         public Otpremnica otpremnica = new Otpremnica();
         public BindingList<StavkaOtpremnice> stavkeOtpr = new BindingList<StavkaOtpremnice>();
+        public BindingList<Dokument> dokumenta = new BindingList<Dokument>();
+
+        public void ucitajDokumentaUDataGrid(DataGridView d)
+        {
+            dokumenta.Clear();
+            k.vratiDokumenta().ForEach(x => dokumenta.Add(x as Dokument));
+            d.DataSource = dokumenta;
+        }
 
         #region prijemnice
         public void ucitajRobuUComboBox(ComboBox c)

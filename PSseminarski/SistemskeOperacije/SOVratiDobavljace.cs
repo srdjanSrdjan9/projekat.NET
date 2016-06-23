@@ -8,11 +8,19 @@ using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOVratiDobavljace
+    public class SOVratiDobavljace:OpstaSIstemskaOperacija
     {
-        public List<OpstiDomenskiObjekat> vratiSveDobavljace()
+        public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().vratiSve(new Dobavljac());
+            try
+            {
+                Lista = Broker.dajSesiju().vratiSve(new Dobavljac());
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
