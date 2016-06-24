@@ -101,6 +101,7 @@
             // JmbgTextBox
             // 
             this.JmbgTextBox.Location = new System.Drawing.Point(103, 104);
+            this.JmbgTextBox.MaxLength = 13;
             this.JmbgTextBox.Name = "JmbgTextBox";
             this.JmbgTextBox.Size = new System.Drawing.Size(169, 20);
             this.JmbgTextBox.TabIndex = 7;

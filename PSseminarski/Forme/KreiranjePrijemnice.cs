@@ -21,8 +21,12 @@ namespace Forme
         public KreiranjePrijemnice()
         {
             InitializeComponent();
-            KorisnikRadioButton.Checked = true;
-            DobavljacRadioButton.Checked = false;
+            radioButton1.Checked = true;
+            radioButton2.Checked = false;
+            radioButton1.CheckedChanged += radioButtons_CheckedChanged;
+            radioButton2.CheckedChanged += radioButtons_CheckedChanged;
+            UlazRadioButton.Checked = true;
+            IzlazRadioButton.Checked = false;
             korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
             kki.ucitajRobuUComboBox(RobaComboBox);
             kki.ucitajRobuUComboBox(comboBox1);
@@ -30,22 +34,31 @@ namespace Forme
             dataGridView2.DataSource = kki.stavkePrijemnice;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
+            RadioButton radioButton = sender as RadioButton;
 
+            if (radioButton1.Checked)
+            {
+                korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
+            }
+            else if (radioButton2.Checked)
+            {
+                klijenti.ucitajDobavljaceUCombobox(KlijentiComboBox);
+            }
         }
 
-        private void DobavljacRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            KorisnikRadioButton.Checked = false;
-            klijenti.ucitajDobavljaceUCombobox(KlijentiComboBox);
-        }
+        //private void DobavljacRadioButton_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    KorisnikRadioButton.Checked = false;
+        //    klijenti.ucitajDobavljaceUCombobox(KlijentiComboBox);
+        //}
 
-        private void KorisnikRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            DobavljacRadioButton.Checked = false;
-            korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
-        }
+        //private void KorisnikRadioButton_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    DobavljacRadioButton.Checked = false;
+        //    korisnici.ucitajKorisnikeUComboBox(KlijentiComboBox);
+        //}
 
         private void DodajButton_Click(object sender, EventArgs e)
         {
@@ -59,13 +72,27 @@ namespace Forme
             {
                 izlaz = 1;
             }
+            if (jedMereReversTextBox.Text == "" || UkupnoTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja za unos reversa su obavezna!");
+                return;
+            }
+            
+            if (true)
+            {
 
-            kki.DodajRevers(jedMereReversTextBox.Text, ulaz, izlaz, RobaComboBox.SelectedItem as Roba, (int)KolicinaNumericUpDown.Value);
+            }
+            kki.DodajRevers(jedMereReversTextBox.Text, ulaz, izlaz, RobaComboBox.SelectedItem as Roba, UkupnoTextBox.Text);
         }
 
         private void DodajStavkubButton_Click(object sender, EventArgs e)
         {
-            kki.dodajStavku(comboBox1.SelectedItem as Roba, (int)KolicinaNumericUpDown.Value, JedMereStavkaTextBox.Text, Double.Parse(UkupnaCenaTextBox.Text));
+            if (JedMereStavkaTextBox.Text == "" || UkupnaCenaTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja su obavezno za dodavanje stavke!");
+                return;
+            }
+            kki.dodajStavku(comboBox1.SelectedItem as Roba, (int)KolicinaNumericUpDown.Value, JedMereStavkaTextBox.Text, UkupnaCenaTextBox.Text);
         }
 
         private void OdustanibButton_Click(object sender, EventArgs e)
@@ -75,7 +102,15 @@ namespace Forme
 
         private void SacuvajButton_Click(object sender, EventArgs e)
         {
-            kki.sacuvajPrijemnicu(MestoTextBox.Text, dateTimePicker1.Value, RobuPrimioTextBox.Text, KlijentiComboBox.SelectedItem as OpstiDomenskiObjekat);
+            if (MestoTextBox.Text == "" || RobuPrimioTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja su obavezna!");
+                return;
+            }
+            if (kki.sacuvajPrijemnicu(MestoTextBox.Text, dateTimePicker1.Value, RobuPrimioTextBox.Text, KlijentiComboBox.SelectedItem as OpstiDomenskiObjekat))
+            {
+                this.Dispose();
+            }
         }
     }
 }

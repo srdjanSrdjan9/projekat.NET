@@ -52,63 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Kupac.cs" />
-    <Compile Include="Migrations\201606181148130_asd.cs" />
-    <Compile Include="Migrations\201606181148130_asd.Designer.cs">
-      <DependentUpon>201606181148130_asd.cs</DependentUpon>
+    <Compile Include="Migrations\201606242144370_Initial.cs" />
+    <Compile Include="Migrations\201606242144370_Initial.Designer.cs">
+      <DependentUpon>201606242144370_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606190925420_KupciIDobavljaci.cs" />
-    <Compile Include="Migrations\201606190925420_KupciIDobavljaci.Designer.cs">
-      <DependentUpon>201606190925420_KupciIDobavljaci.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606190957348_Ispravke.cs" />
-    <Compile Include="Migrations\201606190957348_Ispravke.Designer.cs">
-      <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606201646400_Revers.cs" />
-    <Compile Include="Migrations\201606201646400_Revers.Designer.cs">
-      <DependentUpon>201606201646400_Revers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.cs" />
-    <Compile Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.Designer.cs">
-      <DependentUpon>201606211405283_ReversDodatNaPrijemnicu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.cs" />
-    <Compile Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.Designer.cs">
-      <DependentUpon>201606220801188_IzbaceniRBnaDokumentima.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220806370_KlijentiSredjeni.cs" />
-    <Compile Include="Migrations\201606220806370_KlijentiSredjeni.Designer.cs">
-      <DependentUpon>201606220806370_KlijentiSredjeni.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220821209_ReverSredjen.cs" />
-    <Compile Include="Migrations\201606220821209_ReverSredjen.Designer.cs">
-      <DependentUpon>201606220821209_ReverSredjen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220835174_skinutReversSaPrijemnice.cs" />
-    <Compile Include="Migrations\201606220835174_skinutReversSaPrijemnice.Designer.cs">
-      <DependentUpon>201606220835174_skinutReversSaPrijemnice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220951364_asd1.cs" />
-    <Compile Include="Migrations\201606220951364_asd1.Designer.cs">
-      <DependentUpon>201606220951364_asd1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606221018180_dfg.cs" />
-    <Compile Include="Migrations\201606221018180_dfg.Designer.cs">
-      <DependentUpon>201606221018180_dfg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606232127158_kfg.cs" />
-    <Compile Include="Migrations\201606232127158_kfg.Designer.cs">
-      <DependentUpon>201606232127158_kfg.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operacije.cs" />
     <Compile Include="Dokument.cs" />
     <Compile Include="Dobavljac.cs" />
     <Compile Include="Korisnik.cs" />
-    <Compile Include="Migrations\201605281227168_init.cs" />
-    <Compile Include="Migrations\201605281227168_init.Designer.cs">
-      <DependentUpon>201605281227168_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OpstiDomenskiObjekat.cs" />
     <Compile Include="Otpremnica.cs" />
     <Compile Include="Prijemnica.cs" />
@@ -127,44 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605281227168_init.resx">
-      <DependentUpon>201605281227168_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606181148130_asd.resx">
-      <DependentUpon>201606181148130_asd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606190925420_KupciIDobavljaci.resx">
-      <DependentUpon>201606190925420_KupciIDobavljaci.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606190957348_Ispravke.resx">
-      <DependentUpon>201606190957348_Ispravke.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606201646400_Revers.resx">
-      <DependentUpon>201606201646400_Revers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606211405283_ReversDodatNaPrijemnicu.resx">
-      <DependentUpon>201606211405283_ReversDodatNaPrijemnicu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220801188_IzbaceniRBnaDokumentima.resx">
-      <DependentUpon>201606220801188_IzbaceniRBnaDokumentima.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220806370_KlijentiSredjeni.resx">
-      <DependentUpon>201606220806370_KlijentiSredjeni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220821209_ReverSredjen.resx">
-      <DependentUpon>201606220821209_ReverSredjen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220835174_skinutReversSaPrijemnice.resx">
-      <DependentUpon>201606220835174_skinutReversSaPrijemnice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220951364_asd1.resx">
-      <DependentUpon>201606220951364_asd1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606221018180_dfg.resx">
-      <DependentUpon>201606221018180_dfg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606232127158_kfg.resx">
-      <DependentUpon>201606232127158_kfg.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606242144370_Initial.resx">
+      <DependentUpon>201606242144370_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

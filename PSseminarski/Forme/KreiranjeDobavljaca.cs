@@ -23,6 +23,12 @@ namespace Forme
 
         private void SacuvajButton_Click(object sender, EventArgs e)
         {
+            if (NazivTextBox.Text == "" || PibTextBox.Text == "" || MaticniBrojTextBox.Text == "" || AdresaTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja su obavezna");
+                return;
+            }
+
             if (kki.sacuvajDobavljaca(NazivTextBox.Text.Trim(), PibTextBox.Text.Trim(), MaticniBrojTextBox.Text.Trim(), AdresaTextBox.Text.Trim()) == true)
             {
                 this.Dispose();

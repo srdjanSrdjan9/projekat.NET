@@ -19,7 +19,11 @@ namespace Model
         public int Ulaz { get; set; }
         public int Izlaz { get; set; }
         public int Ukupno { get; set; }
+        [Browsable(false)]
+        public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }
+        
+        public long DokumentID { get; set; }
         public virtual Prijemnica Prijemnica { get; set; }
 
         public Revers()

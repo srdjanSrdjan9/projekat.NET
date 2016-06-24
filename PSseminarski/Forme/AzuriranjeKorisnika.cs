@@ -32,8 +32,16 @@ namespace Forme
 
         private void AzurirajButton_Click(object sender, EventArgs e)
         {
-            kki.azurirajKorisnika(korisnik.KorisnikID, ImeTextBox.Text.Trim(), PrezimeTextBox.Text.Trim(), AdresaTextBox.Text.Trim(), JmbgTextBox.Text.Trim());
-            this.Dispose();
+            if (ImeTextBox.Text == "" || PrezimeTextBox.Text == "" || AdresaTextBox.Text == "" || JmbgTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja su obavezna");
+                return;
+            }
+
+            if (kki.azurirajKorisnika(korisnik.KorisnikID, ImeTextBox.Text.Trim(), PrezimeTextBox.Text.Trim(), AdresaTextBox.Text.Trim(), JmbgTextBox.Text.Trim()) == true)
+            {
+                this.Dispose();
+            }
         }
     }
 }

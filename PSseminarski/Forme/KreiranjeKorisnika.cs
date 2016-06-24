@@ -24,6 +24,12 @@ namespace Forme
 
         private void SacuvajButton_Click(object sender, EventArgs e)
         {
+            if (ImeTextBox.Text == "" || PrezimeTextBox.Text =="" || JmbgTextBox.Text == "" || AdresaTextBox.Text == "")
+            {
+                MessageBox.Show("Sva polja su obavezna");
+                return;
+            }
+
             if (
             kki.sacuvajKorisnika(ImeTextBox.Text.Trim(), PrezimeTextBox.Text.Trim(), AdresaTextBox.Text.Trim(), JmbgTextBox.Text.Trim()) != null)
             {

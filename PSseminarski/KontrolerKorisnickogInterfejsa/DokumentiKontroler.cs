@@ -36,6 +36,11 @@ namespace KontrolerKorisnickogInterfejsa
 
         public void dodajStavkuOtpremnice(string text1, int value, string text2, Roba roba)
         {
+            if (text1 == "" || text2 == "")
+            {
+                MessageBox.Show("Sva polja su obavezna!");
+                return;
+            }
             stavkeOtpr.Add(new StavkaOtpremnice()
             {
                 JedMere = text1,
@@ -50,6 +55,11 @@ namespace KontrolerKorisnickogInterfejsa
 
         public bool sacuvajOtpremnicu(string text, DateTime value, Kupac kupac)
         {
+            if (stavkeOtpr.Count == 0)
+            {
+                MessageBox.Show("Otpremnica mora imati bar jednu stavku");
+                return false;
+            }
             otpremnica.Mesto = text;
             otpremnica.Kupac = kupac;
             otpremnica.DatumIzdavanja = value;
@@ -67,34 +77,51 @@ namespace KontrolerKorisnickogInterfejsa
             }
         }
 
-        public void DodajRevers(string jedinicaMere, int Ulaz, int Izlaz, Roba roba, int kolicina)
+        public void DodajRevers(string jedinicaMere, int Ulaz, int Izlaz, Roba roba, string kolicina)
         {
+            int asd;
+            if (!Int32.TryParse(kolicina, out asd))
+            {
+                MessageBox.Show("Kolicina mora biti broj!");
+                return;
+            }
             this.revers.Add(new Revers()
             {
                 JedMere = jedinicaMere,
                 Ulaz = Ulaz,
                 Izlaz = Izlaz,
                 Roba = roba,
-                Ukupno = kolicina,
+                Ukupno = asd,
                 RedniBroj = revers.Count + 1
             });
         }
 
-        public void dodajStavku(Roba roba, int value, string text, double v)
+        public void dodajStavku(Roba roba, int value, string text, string v)
         {
+            double asd;
+            if (!Double.TryParse(v, out asd))
+            {
+                MessageBox.Show("Cena mora biti broj!");
+                return;
+            }
             stavkePrijemnice.Add(new StavkaPrijemnice()
             {
                 RedniBrojStavke = stavkePrijemnice.Count + 1,
                 Roba = roba,
                 Kolicina = value,
                 JedMere = text,
-                JedCena = v,
-                UkupnaCena = value * v
+                JedCena = asd,
+                UkupnaCena = value * asd
             });
         }
 
         public bool sacuvajPrijemnicu(string text1, DateTime dateTime, string text2, OpstiDomenskiObjekat opstiDomenskiObjekat)
         {
+            if (stavkePrijemnice.Count == 0)
+            {
+                MessageBox.Show("Prijemnica mora imati bar jednu stavku!");
+                return false;
+            }
             prijemnica.Mesto = text1;
             prijemnica.DatumIzdavanja = dateTime;
             prijemnica.RobuPrimio = text2;
@@ -106,8 +133,8 @@ namespace KontrolerKorisnickogInterfejsa
             {
                 prijemnica.Dobavljac = opstiDomenskiObjekat as Dobavljac;
             }
-
-            prijemnica.Revers = revers.ToList();
+            // TODO: REVERS
+            // prijemnica.Revers = revers.ToList();
             prijemnica.Stavke = stavkePrijemnice.ToList();
 
             if (k.sacuvajPrijemnicu(prijemnica))

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
@@ -15,8 +16,8 @@ namespace Model
         //public int BrojOtpremnice { get; set; }
         public ICollection<StavkaOtpremnice> Stavke { get; set; }
 
-        //[Browsable(false)]
-        //public long KupacID { get; set; }
+        [Browsable(false)]
+        public long KupacID { get; set; }
         public virtual Kupac Kupac { get; set; }
 
         public Otpremnica()

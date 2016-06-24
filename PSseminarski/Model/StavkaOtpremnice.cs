@@ -19,13 +19,13 @@ namespace Model
         public double Kolicina { get; set; }
         public double UkupnaCena { get; set; }
         public string JedMere { get; set; }
-        [Required]
+        
         public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }
         [Key]
         [Column(Order = 1)]
         public long DokumentID { get; set; }
-        //public virtual Otpremnica Otpremnica { get; set; }
+        //public virtual otpremnica otpremnica { get; set; }
 
         public StavkaOtpremnice()
         { }

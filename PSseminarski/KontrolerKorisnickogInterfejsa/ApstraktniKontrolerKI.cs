@@ -25,5 +25,18 @@ namespace KontrolerKorisnickogInterfejsa
                 return false;
             }
         }
+
+        public bool daLiImaSlovaUstringu(string s)
+        {
+            StringBuilder sb = new StringBuilder(s);
+            for (int i = 0; i < sb.Length; i++)
+            {
+                if (!Char.IsDigit(sb[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

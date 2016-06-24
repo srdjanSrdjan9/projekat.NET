@@ -21,7 +21,7 @@ namespace Model
         public DbSet<Revers> Revers { get; set; }
 
         public PSContext()
-            : base("name = PSseminarski")
+            : base("name = NovaBaza")
         {
             Configuration.ProxyCreationEnabled = false;
         }

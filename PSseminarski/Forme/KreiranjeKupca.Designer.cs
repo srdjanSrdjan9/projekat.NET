@@ -85,6 +85,7 @@
             // PibTextBox
             // 
             this.PibTextBox.Location = new System.Drawing.Point(99, 41);
+            this.PibTextBox.MaxLength = 20;
             this.PibTextBox.Name = "PibTextBox";
             this.PibTextBox.Size = new System.Drawing.Size(173, 20);
             this.PibTextBox.TabIndex = 5;
@@ -92,6 +93,7 @@
             // MaticniBrojTextBox
             // 
             this.MaticniBrojTextBox.Location = new System.Drawing.Point(99, 70);
+            this.MaticniBrojTextBox.MaxLength = 15;
             this.MaticniBrojTextBox.Name = "MaticniBrojTextBox";
             this.MaticniBrojTextBox.Size = new System.Drawing.Size(173, 20);
             this.MaticniBrojTextBox.TabIndex = 6;

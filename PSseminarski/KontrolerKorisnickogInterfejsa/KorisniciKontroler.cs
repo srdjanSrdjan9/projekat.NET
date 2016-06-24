@@ -21,7 +21,7 @@ namespace KontrolerKorisnickogInterfejsa
             c.DataSource = korisniciPomocna;
         }
 
-        public bool azurirajKorisnika(long id, string ime, string prezime, string adresa, string jmbg)
+        public bool? azurirajKorisnika(long id, string ime, string prezime, string adresa, string jmbg)
         {
             Korisnik korisnik = new Korisnik()
             {
@@ -31,6 +31,12 @@ namespace KontrolerKorisnickogInterfejsa
                 Adresa = adresa,
                 Jmbg = jmbg
             };
+
+            if (daLiImaSlovaUstringu(jmbg))
+            {
+                MessageBox.Show("JMBG mora sadrzati samo brojeve!");
+                return null;
+            }
 
             var result = MessageBox.Show("Da li ste sigurni da želite da ažurirate izabranog korisnika? Potvrdom ažuriranja podaci o korisniku će biti trajno promenjeni!", "Ažuriranje korisnika", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -66,6 +72,11 @@ namespace KontrolerKorisnickogInterfejsa
 
         public bool? sacuvajKorisnika(string ime, string prezime, string adresa, string jmbg)
         {
+            if (daLiImaSlovaUstringu(jmbg))
+            {
+                MessageBox.Show("JMBG mora sadrzati samo brojeve!");
+                return null;
+            }
             var result = MessageBox.Show("Da li ste sigurni da želite da dodate korisnika?", "Kreiranje korisnika", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2785B451-1A05-442A-8383-FE40B99D10AC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C3C93FB1-8BE1-45B1-A7D4-957312264BE8}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Server</RootNamespace>
-    <AssemblyName>Server</AssemblyName>
+    <RootNamespace>KontrolerAplikacioneLogike</RootNamespace>
+    <AssemblyName>KontrolerAplikacioneLogike</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,16 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,25 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NitKlijenta.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="DokumentiAK.cs" />
+    <Compile Include="KlijentiAK.cs" />
+    <Compile Include="KorisniciAK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RobaAK.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KontrolerAplikacioneLogike\KontrolerAplikacioneLogike.csproj">
-      <Project>{C3C93FB1-8BE1-45B1-A7D4-957312264BE8}</Project>
-      <Name>KontrolerAplikacioneLogike</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{B1B5F949-0213-4213-9BD2-270F447C3345}</Project>
       <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\SistemskeOperacije\SistemskeOperacije.csproj">
-      <Project>{b71192f6-9e15-496e-b274-2e1802a97668}</Project>
+      <Project>{B71192F6-9E15-496E-B274-2E1802A97668}</Project>
       <Name>SistemskeOperacije</Name>
     </ProjectReference>
   </ItemGroup>

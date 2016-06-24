@@ -27,6 +27,13 @@ namespace Forme
 
         private void DodajStavkuButton_Click(object sender, EventArgs e)
         {
+            int JedCena;
+            if (!Int32.TryParse(JedinicnaCenaTextBox.Text, out JedCena))
+            {
+                MessageBox.Show("Jedinicna cena mora biti broj!");
+                return;
+            }
+            UkupnoTextBox.Text = (JedCena * KolicinaNumericUpDown.Value).ToString();
             kki.dodajStavkuOtpremnice(JedinicaMereTextBox.Text, (int)KolicinaNumericUpDown.Value, JedinicnaCenaTextBox.Text,RobaComboBox.SelectedItem as Roba);
         }
 
@@ -37,7 +44,15 @@ namespace Forme
 
         private void SacuvajButton_Click(object sender, EventArgs e)
         {
-            kki.sacuvajOtpremnicu(MestoTextBox.Text, dateTimePicker1.Value, KupciComboBox.SelectedItem as Kupac);
+            if (MestoTextBox.Text == "")
+            {
+                MessageBox.Show("Mesto mora biti uneto!!!");
+                return;
+            }
+            if (kki.sacuvajOtpremnicu(MestoTextBox.Text, dateTimePicker1.Value, KupciComboBox.SelectedItem as Kupac))
+            {
+                this.Dispose();
+            }
         }
     }
 }

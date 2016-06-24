@@ -22,6 +22,7 @@ namespace Model
         Vrati_kupce,
         Vrati_Robu,
         Vrati_dokumenta,
+        Kreiraj_Revers,
         Kraj
     }
 }

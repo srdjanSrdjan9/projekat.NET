@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.KupciComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.MestoTextBox = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.SacuvajButton = new System.Windows.Forms.Button();
             this.OdustaniButton = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,6 +71,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Osnovni podaci";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(105, 46);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(289, 20);
+            this.dateTimePicker1.TabIndex = 8;
             // 
             // KupciComboBox
             // 
@@ -167,6 +174,7 @@
             // 
             // UkupnoTextBox
             // 
+            this.UkupnoTextBox.Enabled = false;
             this.UkupnoTextBox.Location = new System.Drawing.Point(105, 104);
             this.UkupnoTextBox.Name = "UkupnoTextBox";
             this.UkupnoTextBox.Size = new System.Drawing.Size(289, 20);
@@ -265,13 +273,6 @@
             this.OdustaniButton.Text = "Odustani";
             this.OdustaniButton.UseVisualStyleBackColor = true;
             this.OdustaniButton.Click += new System.EventHandler(this.OdustaniButton_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(105, 46);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(289, 20);
-            this.dateTimePicker1.TabIndex = 8;
             // 
             // KreiranjeOtpremnice
             // 

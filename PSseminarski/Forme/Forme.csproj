@@ -78,8 +78,6 @@
     <Compile Include="Homepage.Designer.cs">
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Komunikacija.cs" />
-    <Compile Include="KontrolerKI.cs" />
     <Compile Include="Korisnici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KreiranjePrijemnice.resx">
       <DependentUpon>KreiranjePrijemnice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PretragaProizvoda.resx">
+      <DependentUpon>PretragaProizvoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

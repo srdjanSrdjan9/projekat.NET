@@ -272,6 +272,13 @@ namespace Sesija
                 {
                     using (var transakcija = context.Database.BeginTransaction())
                     {
+                        otpremnica.KupacID = otpremnica.Kupac.KupacID;
+                        otpremnica.Kupac = null;
+                        foreach (StavkaOtpremnice item in otpremnica.Stavke)
+                        {
+                            item.RobaID = item.Roba.RobaID;
+                            item.Roba = null;
+                        }
                         context.Dokumenti.Add(otpremnica);
                         if (context.SaveChanges() > 0)
                         {
@@ -301,6 +308,22 @@ namespace Sesija
                 {
                     using (var transakcija = context.Database.BeginTransaction())
                     {
+                        if (prijemnica.Dobavljac == null)
+                        {
+                            prijemnica.DobavljacID = null;
+                            prijemnica.KorisnikID = prijemnica.Korisnik.KorisnikID;
+                            prijemnica.Korisnik = null;
+                        }
+                        else
+                        {
+                            prijemnica.DobavljacID = prijemnica.Dobavljac.DobavljacID;
+                            prijemnica.Dobavljac = null;
+                        }
+                        foreach (StavkaPrijemnice item in prijemnica.Stavke)
+                        {
+                            item.RobaID = item.Roba.RobaID;
+                            item.Roba = null;
+                        }
                         context.Dokumenti.Add(prijemnica);
                         if (context.SaveChanges() > 0)
                         {
@@ -315,7 +338,7 @@ namespace Sesija
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ec)
             {
                 return false;
             }

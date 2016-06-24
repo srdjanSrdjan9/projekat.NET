@@ -20,7 +20,7 @@ namespace Model
         public double Kolicina { get; set; }
         public double UkupnaCena { get; set; }
         public string JedMere { get; set; }
-        [Required]
+
         [Browsable(false)]
         public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }

@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DobavljacRadioButton = new System.Windows.Forms.RadioButton();
-            this.KorisnikRadioButton = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.KlijentiComboBox = new System.Windows.Forms.ComboBox();
             this.RobuPrimioTextBox = new System.Windows.Forms.TextBox();
@@ -39,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Revers = new System.Windows.Forms.GroupBox();
+            this.jedMereReversTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DodajButton = new System.Windows.Forms.Button();
             this.UkupnoTextBox = new System.Windows.Forms.TextBox();
@@ -62,8 +62,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.SacuvajButton = new System.Windows.Forms.Button();
             this.OdustanibButton = new System.Windows.Forms.Button();
-            this.jedMereReversTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.Revers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,9 +74,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.DobavljacRadioButton);
-            this.groupBox1.Controls.Add(this.KorisnikRadioButton);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.KlijentiComboBox);
             this.groupBox1.Controls.Add(this.RobuPrimioTextBox);
@@ -91,29 +91,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Osnovni podaci";
             // 
-            // DobavljacRadioButton
+            // dateTimePicker1
             // 
-            this.DobavljacRadioButton.AutoSize = true;
-            this.DobavljacRadioButton.Location = new System.Drawing.Point(79, 113);
-            this.DobavljacRadioButton.Name = "DobavljacRadioButton";
-            this.DobavljacRadioButton.Size = new System.Drawing.Size(73, 17);
-            this.DobavljacRadioButton.TabIndex = 9;
-            this.DobavljacRadioButton.TabStop = true;
-            this.DobavljacRadioButton.Text = "Dobavljač";
-            this.DobavljacRadioButton.UseVisualStyleBackColor = true;
-            this.DobavljacRadioButton.CheckedChanged += new System.EventHandler(this.DobavljacRadioButton_CheckedChanged);
-            // 
-            // KorisnikRadioButton
-            // 
-            this.KorisnikRadioButton.AutoSize = true;
-            this.KorisnikRadioButton.Location = new System.Drawing.Point(10, 113);
-            this.KorisnikRadioButton.Name = "KorisnikRadioButton";
-            this.KorisnikRadioButton.Size = new System.Drawing.Size(62, 17);
-            this.KorisnikRadioButton.TabIndex = 8;
-            this.KorisnikRadioButton.TabStop = true;
-            this.KorisnikRadioButton.Text = "Korisnik";
-            this.KorisnikRadioButton.UseVisualStyleBackColor = true;
-            this.KorisnikRadioButton.CheckedChanged += new System.EventHandler(this.KorisnikRadioButton_CheckedChanged);
+            this.dateTimePicker1.Location = new System.Drawing.Point(104, 50);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 10;
             // 
             // label12
             // 
@@ -163,7 +146,6 @@
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Datum izdavanja";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -193,6 +175,13 @@
             this.Revers.TabIndex = 1;
             this.Revers.TabStop = false;
             this.Revers.Text = "Revers";
+            // 
+            // jedMereReversTextBox
+            // 
+            this.jedMereReversTextBox.Location = new System.Drawing.Point(104, 20);
+            this.jedMereReversTextBox.Name = "jedMereReversTextBox";
+            this.jedMereReversTextBox.Size = new System.Drawing.Size(201, 20);
+            this.jedMereReversTextBox.TabIndex = 11;
             // 
             // dataGridView1
             // 
@@ -361,9 +350,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(10, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.Size = new System.Drawing.Size(32, 13);
             this.label11.TabIndex = 3;
-            this.label11.Text = "Ukupna cena";
+            this.label11.Text = "Cena";
             // 
             // label10
             // 
@@ -412,19 +401,27 @@
             this.OdustanibButton.UseVisualStyleBackColor = true;
             this.OdustanibButton.Click += new System.EventHandler(this.OdustanibButton_Click);
             // 
-            // jedMereReversTextBox
+            // radioButton1
             // 
-            this.jedMereReversTextBox.Location = new System.Drawing.Point(104, 20);
-            this.jedMereReversTextBox.Name = "jedMereReversTextBox";
-            this.jedMereReversTextBox.Size = new System.Drawing.Size(201, 20);
-            this.jedMereReversTextBox.TabIndex = 11;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(13, 103);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(62, 17);
+            this.radioButton1.TabIndex = 11;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Korisnik";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // radioButton2
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 50);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(104, 103);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(73, 17);
+            this.radioButton2.TabIndex = 12;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Dobavljač";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // KreiranjePrijemnice
             // 
@@ -485,9 +482,9 @@
         private System.Windows.Forms.Button OdustanibButton;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox KlijentiComboBox;
-        private System.Windows.Forms.RadioButton DobavljacRadioButton;
-        private System.Windows.Forms.RadioButton KorisnikRadioButton;
         private System.Windows.Forms.TextBox jedMereReversTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

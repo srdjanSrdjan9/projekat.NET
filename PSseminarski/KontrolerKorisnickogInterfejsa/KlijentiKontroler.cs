@@ -27,6 +27,18 @@ namespace KontrolerKorisnickogInterfejsa
         }
         public bool? sacuvajDobavljaca(string naziv, string pib, string matBr, string adresa)
         {
+            if (daLiImaSlovaUstringu(pib))
+            {
+                MessageBox.Show("Pib mora imati samo brojeve!");
+                return null;
+            }
+
+            if (daLiImaSlovaUstringu(matBr))
+            {
+                MessageBox.Show("Maticni broj mora imati samo brojeve!");
+                return null;
+            }
+
             var result = MessageBox.Show("Da li ste sigurni da želite da sačuvate dobavljača?", "Kreiranje dobavljača", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
@@ -55,6 +67,18 @@ namespace KontrolerKorisnickogInterfejsa
 
         public bool? sacuvajKupca(string naziv, string pib, string matBr, string adresa)
         {
+            if (daLiImaSlovaUstringu(pib))
+            {
+                MessageBox.Show("Pib ne sme sadrzati slova!");
+                return null;
+            }
+
+            if (daLiImaSlovaUstringu(matBr))
+            {
+                MessageBox.Show("Maticni broj mora sadrzati samo brojeve!");
+                return null;
+            }
+
             var result = MessageBox.Show("Da li ste sigurni da želite da sačuvate kupca?", "Kreiranje kupca", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
