@@ -30,6 +30,7 @@ namespace Model
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Entity<>
         }
 
         public bool ubaci(OpstiDomenskiObjekat odo)

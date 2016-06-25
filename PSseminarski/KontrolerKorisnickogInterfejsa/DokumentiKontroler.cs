@@ -34,6 +34,28 @@ namespace KontrolerKorisnickogInterfejsa
             c.DataSource = roba;
         }
 
+        public void PopuniStanje(Roba r, TextBox primljenotxt, TextBox prodatotxt)
+        {
+            double primljeno = 0;
+            double prodato = 0;
+            List<OpstiDomenskiObjekat> asd = k.pretraziProizvode(r);
+            asd.ForEach(c =>
+            {
+                try
+                {
+                    StavkaOtpremnice s = c as StavkaOtpremnice;
+                    prodato += s.Kolicina;
+                }
+                catch (Exception)
+                {
+                    StavkaPrijemnice p = c as StavkaPrijemnice;
+                    primljeno += p.Kolicina;
+                }
+            });
+            primljenotxt.Text = primljeno.ToString();
+            prodatotxt.Text = prodato.ToString();
+        }
+
         public void dodajStavkuOtpremnice(string text1, int value, string text2, Roba roba)
         {
             if (text1 == "" || text2 == "")
@@ -85,7 +107,7 @@ namespace KontrolerKorisnickogInterfejsa
                 MessageBox.Show("Kolicina mora biti broj!");
                 return;
             }
-            this.revers.Add(new Revers()
+            Revers r = new Revers()
             {
                 JedMere = jedinicaMere,
                 Ulaz = Ulaz,
@@ -93,7 +115,8 @@ namespace KontrolerKorisnickogInterfejsa
                 Roba = roba,
                 Ukupno = asd,
                 RedniBroj = revers.Count + 1
-            });
+            };
+            revers.Add(r);
         }
 
         public void dodajStavku(Roba roba, int value, string text, string v)
@@ -136,7 +159,7 @@ namespace KontrolerKorisnickogInterfejsa
             // TODO: REVERS
             // prijemnica.Revers = revers.ToList();
             prijemnica.Stavke = stavkePrijemnice.ToList();
-
+            prijemnica.Revers = revers.ToList();
             if (k.sacuvajPrijemnicu(prijemnica))
             {
                 MessageBox.Show("Prijemnica je uspešno sačuvana!");
@@ -147,6 +170,17 @@ namespace KontrolerKorisnickogInterfejsa
                 MessageBox.Show("Prijemnica nije uspešno sačuvana!");
                 return false;
             }
+            //if (k.kreirajRevers(revers.ToList()))
+            //{
+            //    MessageBox.Show("Revers je uspesno dodat!");
+            //    return true;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Revers nije uspesno dodat!");
+            //    return false;
+            //}
+
         }
         #endregion
 

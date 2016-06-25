@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     [Serializable]
-    public class Revers
+    public class Revers : OpstiDomenskiObjekat
     {
         [Browsable(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,13 +22,33 @@ namespace Model
         [Browsable(false)]
         public int RobaID { get; set; }
         public virtual Roba Roba { get; set; }
-        
+
         public long DokumentID { get; set; }
         public virtual Prijemnica Prijemnica { get; set; }
 
         public Revers()
         {
 
+        }
+
+        public string vratiImeTabele()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string vratiKljucIUslov()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VrednostZaInsert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OpstiDomenskiObjekat> vratiListu()
+        {
+            throw new NotImplementedException();
         }
     }
 }

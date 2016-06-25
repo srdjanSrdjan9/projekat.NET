@@ -45,6 +45,15 @@ namespace Server
                     operacija = transfer.Operacija;
                     switch (transfer.Operacija)
                     {
+                        case (int)Operacije.Kreiraj_Revers:
+                            transfer.Uspesnost = dokumenti.sacuvajRevers(transfer.TransferObjekat as List<Revers>);
+                            formater.Serialize(tok, transfer);
+                            break;
+
+                        case (int)Operacije.Pretrazivanje_proizvoda:
+                            transfer.TransferObjekat = roba.pretraziProizvode(transfer.TransferObjekat as Roba);
+                            formater.Serialize(tok, transfer);
+                            break;
                         case (int)Operacije.Vrati_korisnike:
                             transfer.TransferObjekat = korisnici.vratiKorisnike();
                             transfer.Uspesnost = true;

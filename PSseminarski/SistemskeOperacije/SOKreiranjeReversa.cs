@@ -8,11 +8,12 @@ using Sesija;
 
 namespace SistemskeOperacije
 {
-    public class SOKreiranjePrijemnice : OpstaSIstemskaOperacija
+    public class SOKreiranjeReversa : OpstaSIstemskaOperacija
     {
+
         public override bool izvrsi(OpstiDomenskiObjekat o)
         {
-            return Broker.dajSesiju().sacuvajPrijemnicu(o);
+            return Broker.dajSesiju().kreirajRevers(o as Revers);
         }
     }
 }

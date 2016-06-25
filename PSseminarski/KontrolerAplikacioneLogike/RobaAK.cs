@@ -16,5 +16,12 @@ namespace KontrolerAplikacioneLogike
             so.IzvrsiSo(new Roba());
             return so.Lista;
         }
+
+        public List<OpstiDomenskiObjekat> pretraziProizvode(Roba roba)
+        {
+            SOPretrazivanjeProizvoda pr = new SOPretrazivanjeProizvoda();
+            pr.IzvrsiSo(roba);
+            return pr.Lista;
+        }
     }
 }

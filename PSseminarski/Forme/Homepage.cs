@@ -46,7 +46,8 @@ namespace Forme
 
         private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PretragaProizvoda p = new PretragaProizvoda();
+            p.ShowDialog();
         }
 
         private void KreirajPrijemnicuButton_Click(object sender, EventArgs e)

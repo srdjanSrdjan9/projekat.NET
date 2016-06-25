@@ -27,7 +27,33 @@ namespace Sesija
             return instanca;
         }
 
+        public List<OpstiDomenskiObjekat> pretraziProizvode(OpstiDomenskiObjekat o)
+        {
+            Roba r = o as Roba;
+            List<OpstiDomenskiObjekat> objekti = new List<OpstiDomenskiObjekat>();
+            using (var context = new PSContext())
+            {
+                context.StavkeOtpremnice.Where(x => x.RobaID == r.RobaID).ToList().ForEach(a => objekti.Add(a));
+                context.StavkePrijemnice.Where(x => x.RobaID == r.RobaID).ToList().ForEach(a => objekti.Add(a));
+            }
+            return objekti;
+        }
 
+        public bool kreirajRevers(Revers r)
+        {
+            using (var conext = new PSContext())
+            {
+                conext.Revers.Add(r);
+                if (conext.SaveChanges() == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         //public bool sacuvajPrijemnicu(Prijemnica prijemnica)
         //{
@@ -324,6 +350,14 @@ namespace Sesija
                             item.RobaID = item.Roba.RobaID;
                             item.Roba = null;
                         }
+
+                        foreach (Revers item in prijemnica.Revers)
+                        {
+                            item.DokumentID = prijemnica.DokumentID;
+                            item.RobaID = item.Roba.RobaID;
+                            item.Roba = null;
+                        }
+
                         context.Dokumenti.Add(prijemnica);
                         if (context.SaveChanges() > 0)
                         {

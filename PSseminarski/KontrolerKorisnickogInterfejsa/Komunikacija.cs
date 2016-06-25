@@ -166,6 +166,26 @@ namespace KontrolerKorisnickogInterfejsa
             return response.Uspesnost;
         }
 
+        public List<OpstiDomenskiObjekat> pretraziProizvode(Roba r)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Pretrazivanje_proizvoda;
+            transfer.TransferObjekat = r;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.TransferObjekat as List<OpstiDomenskiObjekat>;
+        }
+
+        public bool kreirajRevers(List<Revers> r)
+        {
+            TransferKlasa transfer = new TransferKlasa();
+            transfer.Operacija = (int)Operacije.Kreiraj_Revers;
+            transfer.TransferObjekat = r;
+            formater.Serialize(tok, transfer);
+            TransferKlasa response = formater.Deserialize(tok) as TransferKlasa;
+            return response.Uspesnost;
+        }
+
         public void zatvori()
         {
             TransferKlasa transfer = new TransferKlasa();

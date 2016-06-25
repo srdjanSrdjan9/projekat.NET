@@ -28,5 +28,32 @@ namespace KontrolerAplikacioneLogike
             dok.IzvrsiSo(new Prijemnica());
             return dok.Lista;
         }
+
+        public bool sacuvajRevers(List<Revers> r)
+        {
+            if (r == null)
+            {
+                return true;
+            }
+            int count = 0;
+            SOKreiranjeReversa so = new SOKreiranjeReversa();
+            r.ForEach(c =>
+            {
+                if (so.IzvrsiSo(c))
+                {
+                    count++;
+                }
+            });
+
+            if (count == r.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
