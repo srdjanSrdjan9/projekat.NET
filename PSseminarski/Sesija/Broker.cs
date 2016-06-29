@@ -55,60 +55,6 @@ namespace Sesija
             }
         }
 
-        //public bool sacuvajPrijemnicu(Prijemnica prijemnica)
-        //{
-        //    //int reversCount = 0;
-        //    //int stavkeCount = 0;
-        //    try
-        //    {
-        //        using (var context = new PSContext())
-        //        {
-        //            using (var transaction = context.Database.BeginTransaction())
-        //            {
-        //                //string uputPr = "insert into Dokuments (DatumIzdavanja, Mesto, RobuPrimio, Discriminator)" ;
-        //                //int rez1 = context.Database.ExecuteSqlCommand(uputPr);
-
-        //                context.Dokumenti.Add(prijemnica);
-        //                context.SaveChanges();
-        //                long id = prijemnica.DokumentID;
-
-        //                string upit = "";
-
-        //                //foreach (StavkaPrijemnice item in prijemnica.Stavke)
-        //                //{
-        //                //    // item.DokumentID = id;
-        //                //    upit = "insert into StavkaPrijemnices " + item.VrednostZaInsert();
-
-        //                //    int rez = context.Database.ExecuteSqlCommand(upit);
-        //                //    if (rez == 1)
-        //                //    {
-        //                //        stavkeCount++;
-        //                //    }
-        //                //    //context.StavkePrijemnice.Add(item);
-
-        //                //}
-
-        //                //foreach (Revers item in prijemnica.Revers)
-        //                //{
-        //                //    //item.Prijemnica = prijemnica;
-        //                //    item.Prijemnica = prijemnica;
-        //                //    context.Revers.Add(item);
-        //                //    reversCount++;
-        //                //}
-
-        //                context.SaveChanges();
-
-        //                transaction.Commit();
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
-
         #region genericke metode
 
         public List<OpstiDomenskiObjekat> vratiDokumenta()

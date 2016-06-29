@@ -148,7 +148,7 @@ namespace KontrolerKorisnickogInterfejsa
             prijemnica.Mesto = text1;
             prijemnica.DatumIzdavanja = dateTime;
             prijemnica.RobuPrimio = text2;
-            if (opstiDomenskiObjekat.vratiImeTabele() == "Korisniks")
+            if (opstiDomenskiObjekat != null && opstiDomenskiObjekat.vratiImeTabele() == "Korisniks")
             {
                 prijemnica.Korisnik = opstiDomenskiObjekat as Korisnik;
             }
