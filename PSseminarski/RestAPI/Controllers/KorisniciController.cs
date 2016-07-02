@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using RestAPI.Models;
 
 namespace RestAPI.Controllers
 {
@@ -33,6 +34,6 @@ namespace RestAPI.Controllers
             {
                 return NotFound();
             }
-         }
+        }
     }
 }

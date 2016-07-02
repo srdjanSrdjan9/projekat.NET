@@ -11,7 +11,7 @@ namespace RestAPI.Models
         public string Prezime { get; set; }
         public string Adresa { get; set; }
         public string Jmbg { get; set; }
-        
+
         public KreiranjeKor() { }
     }
 }
