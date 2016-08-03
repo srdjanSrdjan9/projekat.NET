@@ -220,6 +220,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607260812173_asd.cs" />
+    <Compile Include="Migrations\201607260812173_asd.Designer.cs">
+      <DependentUpon>201607260812173_asd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -304,6 +309,11 @@
       <Project>{b71192f6-9e15-496e-b274-2e1802a97668}</Project>
       <Name>SistemskeOperacije</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607260812173_asd.resx">
+      <DependentUpon>201607260812173_asd.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

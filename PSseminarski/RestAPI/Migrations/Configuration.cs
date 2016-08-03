@@ -1,18 +1,18 @@
-namespace Model.Migrations
+namespace RestAPI.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Model.PSContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<RestAPI.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Model.PSContext context)
+        protected override void Seed(RestAPI.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

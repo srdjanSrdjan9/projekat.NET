@@ -7,7 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using RestAPI.Models;
 
 namespace RestAPI.Controllers
 {
@@ -27,6 +26,36 @@ namespace RestAPI.Controllers
                 Jmbg = k.Jmbg
             };
             if (so.IzvrsiSo(kor))
+            {
+                return Ok();
+            }
+            else
+            {
+                return InternalServerError();
+            }
+        }
+
+        [HttpPost]
+        [Route("brisanje")]
+        public IHttpActionResult deleteUser([FromBody]Korisnik k)
+        {
+            SOBrisanjeKorisnika sob = new SOBrisanjeKorisnika();
+            if (sob.IzvrsiSo(k))
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        [Route("brisanje")]
+        public IHttpActionResult updateUser([FromBody]Korisnik k)
+        {
+            SOBrisanjeKorisnika sob = new SOBrisanjeKorisnika();
+            if (sob.IzvrsiSo(k))
             {
                 return Ok();
             }
