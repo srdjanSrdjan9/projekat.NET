@@ -9,7 +9,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Model
 {
-    [Serializable]
     public class Korisnik : OpstiDomenskiObjekat
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

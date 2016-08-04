@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http.Cors;
+using System.Net.Http.Headers;
 
 namespace RestAPI
 {
@@ -16,6 +17,7 @@ namespace RestAPI
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
             // CORS
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));

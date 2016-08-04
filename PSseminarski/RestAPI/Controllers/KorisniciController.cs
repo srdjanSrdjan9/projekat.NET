@@ -64,5 +64,14 @@ namespace RestAPI.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("dajSve")]
+        public IEnumerable<OpstiDomenskiObjekat> ucitajKorisnike()
+        {
+            SOPretraziKorisnike sop = new SOPretraziKorisnike();
+            sop.IzvrsiSo(new Korisnik());
+            return sop.Lista;
+        }
     }
 }
