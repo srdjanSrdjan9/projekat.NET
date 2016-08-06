@@ -26,5 +26,23 @@ namespace RestAPI.Controllers
                 return InternalServerError();
             }
         }
+
+        [HttpGet]
+        [Route("dajRobu")]
+        public IEnumerable<OpstiDomenskiObjekat> getRoba()
+        {
+            SOVratiRobu sov = new SOVratiRobu();
+            sov.IzvrsiSo(new Roba());
+            return sov.Lista;
+        }
+
+        [HttpGet]
+        [Route("dajKupce")]
+        public IEnumerable<OpstiDomenskiObjekat> getKupci()
+        {
+            SOVratiKupce sov = new SOVratiKupce();
+            sov.IzvrsiSo(new Kupac());
+            return sov.Lista;
+        }
     }
 }
