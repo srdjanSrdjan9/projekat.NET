@@ -244,12 +244,12 @@ namespace Sesija
                 {
                     using (var transakcija = context.Database.BeginTransaction())
                     {
-                        otpremnica.KupacID = otpremnica.Kupac.KupacID;
-                        otpremnica.Kupac = null;
+                        //otpremnica.KupacID = otpremnica.Kupac.KupacID;
+                        //otpremnica.Kupac = null;
                         foreach (StavkaOtpremnice item in otpremnica.Stavke)
                         {
-                            item.RobaID = item.Roba.RobaID;
-                            item.Roba = null;
+                            //item.RobaID = item.Roba.RobaID;
+                            //item.Roba = null;
                         }
                         context.Dokumenti.Add(otpremnica);
                         if (context.SaveChanges() > 0)

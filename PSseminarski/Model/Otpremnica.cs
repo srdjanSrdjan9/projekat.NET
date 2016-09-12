@@ -9,7 +9,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
-    [Serializable]
     public class Otpremnica : Dokument
     {
         //[Required(ErrorMessage = "Redni broj otpremnice mora biti unet")]
@@ -18,7 +17,7 @@ namespace Model
 
         [Browsable(false)]
         public long KupacID { get; set; }
-        public virtual Kupac Kupac { get; set; }
+        //public virtual Kupac Kupac { get; set; }
 
         public Otpremnica()
             : base()

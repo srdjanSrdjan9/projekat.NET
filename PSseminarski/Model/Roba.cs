@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Serializable]
     public class Roba:OpstiDomenskiObjekat
     {
         public int RobaID { get; set; }

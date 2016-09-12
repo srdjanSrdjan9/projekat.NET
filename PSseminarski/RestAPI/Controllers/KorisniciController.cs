@@ -51,10 +51,10 @@ namespace RestAPI.Controllers
         }
 
         [HttpPost]
-        [Route("brisanje")]
+        [Route("azuriranje")]
         public IHttpActionResult updateUser([FromBody]Korisnik k)
         {
-            SOBrisanjeKorisnika sob = new SOBrisanjeKorisnika();
+            SOAzuriranjeKorisnika sob = new SOAzuriranjeKorisnika();
             if (sob.IzvrsiSo(k))
             {
                 return Ok();

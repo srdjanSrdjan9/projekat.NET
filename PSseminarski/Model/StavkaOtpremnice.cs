@@ -8,7 +8,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
-    [Serializable]
     public class StavkaOtpremnice : OpstiDomenskiObjekat
     {
         [Key]
@@ -21,7 +20,7 @@ namespace Model
         public string JedMere { get; set; }
         
         public int RobaID { get; set; }
-        public virtual Roba Roba { get; set; }
+        //public virtual Roba Roba { get; set; }
         [Key]
         [Column(Order = 1)]
         public long DokumentID { get; set; }
