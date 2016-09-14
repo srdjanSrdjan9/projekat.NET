@@ -92,7 +92,8 @@ namespace Sesija
                 {
                     using (var transakcija = context.Database.BeginTransaction())
                     {
-                        if (context.ubaci(k))
+                        context.Korisnici.Add(k);
+                        if (context.SaveChanges() == 1)
                         {
                             transakcija.Commit();
                             return true;
