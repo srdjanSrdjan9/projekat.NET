@@ -63,6 +63,7 @@
     <Compile Include="PSContext.cs" />
     <Compile Include="Revers.cs" />
     <Compile Include="Roba.cs" />
+    <Compile Include="Statistika.cs" />
     <Compile Include="StavkaOtpremnice.cs" />
     <Compile Include="StavkaPrijemnice.cs" />
     <Compile Include="TransferKlasa.cs" />
